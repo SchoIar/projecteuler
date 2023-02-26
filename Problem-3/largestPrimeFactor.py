@@ -21,6 +21,6 @@ def largestPrimeFactorFinder(number):
         return None
     return largestPrimeFactor
 
-number = 11
+number = 600851475143 
 #largestPrimeFactor = largestPrimeFactorFinder(number)
 print(largestPrimeFactorFinder(number))

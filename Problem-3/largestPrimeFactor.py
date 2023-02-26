@@ -8,16 +8,17 @@ def isPrime(number):
             return False
     return True
 
-#Taking from the top (ie. Largest, if taking from the bottom, would put into a list, and append most large factor)
+#Taking from the bottom
 def largestPrimeFactorFinder(number):
-    largestPrimeFactor = number - 1
+    largestPrimeFactor = 1
+    x = 1
+    for x in range(0, number-1):
+        x += 1
+        if(number%x == 0):
+            if(isPrime(x)):
+                largestPrimeFactor = x
+    return largestPrimeFactor
 
-    while(largestPrimeFactor > 0):
-        if(number%largestPrimeFactor == 0):
-            if(isPrime(largestPrimeFactor)):
-                return largestPrimeFactor
-        else:
-            largestPrimeFactor -= 1
-
-number = 600851475143 
+number = 999
+#largestPrimeFactor = largestPrimeFactorFinder(number)
 print(largestPrimeFactorFinder(number))

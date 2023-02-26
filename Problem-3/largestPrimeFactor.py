@@ -17,8 +17,10 @@ def largestPrimeFactorFinder(number):
         if(number%x == 0):
             if(isPrime(x)):
                 largestPrimeFactor = x
+    if(largestPrimeFactor == 1 and number != 1): 
+        return None
     return largestPrimeFactor
 
-number = 999
+number = 11
 #largestPrimeFactor = largestPrimeFactorFinder(number)
 print(largestPrimeFactorFinder(number))

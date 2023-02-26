@@ -1,4 +1,5 @@
 #Anton Ilic, Feb 25, 2023
+#https://projecteuler.net/problem=1
 
 totalSum = 0
 for i in range(1,1000):

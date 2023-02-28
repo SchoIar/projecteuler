@@ -16,19 +16,21 @@ def isPalindrome(number):
         return True
     return False    
 
-
+def findLargestPalindroneOfThree():
 #Try all combinations to see which numbers are palindromes, store them in a list, choose the largest.
-a = []
+    a = []
 
-for i in range(1, 999):
-    for j in range(1, 999):
-        product = i * j
-        if(isPalindrome(product)):
-            a.append(product)
+    for i in range(1, 999):
+        for j in range(1, 999):
+            product = i * j
+            if(isPalindrome(product)):
+                a.append(product)
 
-largestElement = 0
-for element in a:
-    if(largestElement < element):
-        largestElement = element
+    largestElement = 0
+    for element in a:
+        if(largestElement < element):
+            largestElement = element
 
-print(largestElement)
+    return largestElement
+
+print(findLargestPalindroneOfThree())

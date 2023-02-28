@@ -16,6 +16,7 @@ def isPalindrome(number):
         return True
     return False    
 
+
 #Try all combinations to see which numbers are palindromes, store them in a list, choose the largest.
 a = []
 
@@ -24,3 +25,10 @@ for i in range(1, 999):
         product = i * j
         if(isPalindrome(product)):
             a.append(product)
+
+largestElement = 0
+for element in a:
+    if(largestElement < element):
+        largestElement = element
+
+print(largestElement)

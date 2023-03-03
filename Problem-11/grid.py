@@ -23,5 +23,11 @@ listOfNum = [
     [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
     [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
     ]
-
-
+maxSum = 0; tempSum = 0
+for i in range(0,20):
+    for j in range(0,20):
+        #if up exists do it
+        #if down exists do it
+        #if left exists do it
+        #if right exists do it
+     pass

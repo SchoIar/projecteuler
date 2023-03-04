@@ -4,7 +4,7 @@
 #first one hundred natural numbers and the square of the sum.
 sumOfSquares = 0
 squareOfSum = 0
-for i in range(0,11):
+for i in range(0,101):
     sumOfSquares += i*i
     squareOfSum += i
 

@@ -16,8 +16,8 @@ while(len(primeList) < 10001):
             isPrime = False
             break
     if(isPrime == True):
-        primeList.append(currentNumber)
         print(currentNumber)
+        primeList.append(currentNumber)
     currentNumber = currentNumber + 2
     
 

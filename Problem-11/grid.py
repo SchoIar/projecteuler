@@ -23,11 +23,43 @@ listOfNum = [
     [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
     [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
     ]
-maxSum = 0; tempSum = 0
-for i in range(0,20):
-    for j in range(0,20):
-        #if up exists do it
-        #if down exists do it
-        #if left exists do it
-        #if right exists do it
-     pass
+maxProduct = 0; 
+
+for i in range(0,20):   #Using this value for X
+    for j in range(0,20):   #Using this value for Y
+        leftProduct = 1; rightProduct = 1; upProduct = 1; downProduct = 1; 
+        neDiaProduct = 1; seDiaProduct = 1; swDiaProduct = 1; nwDiaProdict = 1
+        rightExists = False; leftExists = False; downExists = False; upExists = False
+        if(i >= 3):  #Right exists
+            rightExists = True
+            for k in range(0,3):
+                leftProduct = leftProduct * listOfNum[i-k][j]
+        if(i <= 16): #Left exists
+            leftExists = True
+            for k in range(0,3):
+                rightProduct = rightProduct * listOfNum[i+k][j]
+        if(j >= 3):  #up exists
+            upExists = True
+            for k in range(0,3):
+                upProduct = upProduct * listOfNum[i][j+k]
+        if(j <= 16): #down exists
+            downExists = True
+            for k in range(0,3):
+                downProduct = downProduct * listOfNum[i][j-k]
+
+        if(upExists and leftExists): #NW exists
+            for k in range(0,3):
+                nwDiaProdict = nwDiaProdict * listOfNum[i+k][j+k]
+        if(upExists and rightExists): #NE exists
+            for k in range(0,3):
+                neDiaProduct = neDiaProduct * listOfNum[i+k][j-k]
+        if(downExists and leftExists): #SW exists
+            for k in range(0,3):
+                swDiaProduct = swDiaProduct * listOfNum[i-k][j+k]
+        if(downExists and rightExists): #SE exists
+            for k in range(0,3):
+                seDiaProduct = seDiaProduct * listOfNum[i-k][j+k]
+        
+        if maxProduct < max(seDiaProduct, swDiaProduct, nwDiaProdict, neDiaProduct, downProduct, upProduct, leftProduct, rightProduct):
+            maxProduct = max(seDiaProduct, swDiaProduct, nwDiaProdict, neDiaProduct, downProduct, upProduct, leftProduct, rightProduct)
+        print(maxProduct)

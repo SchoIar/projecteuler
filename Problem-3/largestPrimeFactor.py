@@ -1,6 +1,7 @@
 #Anton Ilic, Feb 25, 2023
 #https://projecteuler.net/problem=3
-#Find the largest prime factor of 600851475143 
+#Find the largest prime factor of 600851475143
+#very inneficiant and slow, but will eventually give the right answer 
 
 def isPrime(number):
     for i in range(2, number):
@@ -17,6 +18,7 @@ def largestPrimeFactorFinder(number):
         if(number%x == 0):
             if(isPrime(x)):
                 largestPrimeFactor = x
+                print(largestPrimeFactor)
     if(largestPrimeFactor == 1 and number != 1): 
         return None
     return largestPrimeFactor

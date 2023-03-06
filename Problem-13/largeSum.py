@@ -9,4 +9,5 @@ with open('numbers.txt') as f:
 
 solution = sum(numbers)
 solution = str(solution)[0:10] 
+f.close()
 print(solution)

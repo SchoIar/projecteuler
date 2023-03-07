@@ -1,5 +1,5 @@
-# Anton Ilic, Mar 6, 2023
-#https://projecteuler.net/problem=13
+# Anton Ilic, Mar 5, 2023
+#https://projecteuler.net/problem=14
 
 #n → n/2 (n is even)
 #n → 3n + 1 (n is odd)

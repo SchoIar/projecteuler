@@ -74,7 +74,7 @@ for i in range(1,1001):
         totalSum += doubleDigit(i)
     elif(i < 1000):
         totalSum += tripleDigit(i)
-        print(f"{i} and {tripleDigit(i)}")
+        #print(f"{i} and {tripleDigit(i)}")
     else:
         totalSum += 11
     

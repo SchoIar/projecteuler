@@ -12,19 +12,17 @@ def singleDigit(num):
     '''Assumes input is a single digit'''
     count = 0
     if num == 0:
-        pass
+        return 0 #one two six
     elif (num == 1 or num == 2 or num == 6):
-        count = 3
+        count = 3 #four five nine
     elif (num == 4 or num == 5 or num == 9):
         count = 4
-    else:
+    else: #three  seven eight
         count = 5
     return count
 
 
 def doubleDigit(num):
-    if(num == 0):
-        return 0
     numStr = str(num)
     firstNum = int(numStr[0])
     secondNum = int(numStr[1])
@@ -32,9 +30,7 @@ def doubleDigit(num):
     if firstNum == 1:
         if (num == 10):
             return 3
-        elif (num == 11):
-            return 5
-        elif (num == 12):
+        elif (num == 11 and num == 12): #twelve
             return 6
         elif (num == 13 or num == 14 or num == 18 or num == 19):
             return 8
@@ -42,16 +38,14 @@ def doubleDigit(num):
             return 7
         else:  # 17
             return 9
+        #twenty thirty eighty ninety
     elif firstNum == 2 or firstNum == 3 or firstNum == 8 or firstNum == 9:
         return 6 + singleDigit(secondNum)
-    elif num == 70:
+    elif firstNum == 7: #seventy
         return 7 + singleDigit(secondNum)
-    else:
+    else: #forty fifty sixty 
         return 5 + singleDigit(secondNum)
 
-        #eleven twelve thirteen fourteen fifteen sixteen seventeen
-        # eighteen nineteen twenty. thirty
-        # forty fifty sixty seventy eighty ninety
 
 
 def tripleDigit(num):
@@ -60,13 +54,15 @@ def tripleDigit(num):
     secondNum = int(numStr[1])
     thirdNum = int(numStr[2])
     firstAndSecondNum = int(str(secondNum) + str(thirdNum))
+
     count = singleDigit(firstNum) + 7
-    if(secondNum == 0 and thirdNum == 0):
+
+    if(secondNum == 0 and thirdNum == 0): #case: X hundred
         return count
     elif(secondNum == 0):
-        return count + singleDigit(thirdNum) + 3
+        return count + singleDigit(thirdNum) + 3 #case: X hundred and Y
     else:
-        return count + doubleDigit(firstAndSecondNum) + 3
+        return count + doubleDigit(firstAndSecondNum) + 3 #case: X hundred and YZ
     
 
 totalSum = 0

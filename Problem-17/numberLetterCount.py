@@ -26,18 +26,19 @@ def doubleDigit(num):
     numStr = str(num)
     firstNum = int(numStr[0])
     secondNum = int(numStr[1])
-
+    count = 0
     if firstNum == 1:
         if (num == 10):
-            return 3
-        elif (num == 11 and num == 12): #twelve
-            return 6
+            count = 3
+        elif (num == 11 or num == 12): #eleven twelve
+            count = 6
         elif (num == 13 or num == 14 or num == 18 or num == 19):
-            return 8
-        elif (num == 15):
-            return 7
-        else:  # 17
-            return 9
+            count = 8 #fourTEEN
+        elif (num == 15 or num == 16): #sixteen = 7 AND
+            count = 7
+        elif (num == 17):  # 17 seventeen
+            count = 9
+        return count
         #twenty thirty eighty ninety
     elif firstNum == 2 or firstNum == 3 or firstNum == 8 or firstNum == 9:
         return 6 + singleDigit(secondNum)

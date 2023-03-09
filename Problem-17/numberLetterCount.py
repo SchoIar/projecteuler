@@ -56,14 +56,18 @@ def doubleDigit(num):
 
 def tripleDigit(num):
     numStr = str(num)
-    count = singleDigit(int(numStr[0])) + 7
-
-    if(int(numStr[1]) == 0):
-        count += 3 + singleDigit(int(numStr[2]))
+    firstNum = int(numStr[0])
+    secondNum = int(numStr[1])
+    thirdNum = int(numStr[2])
+    firstAndSecondNum = int(str(secondNum) + str(thirdNum))
+    count = singleDigit(firstNum) + 7
+    if(secondNum == 0 and thirdNum == 0):
+        return count
+    elif(secondNum == 0):
+        return count + singleDigit(thirdNum) + 3
     else:
-        count += doubleDigit(int(numStr))
-
-    return count
+        return count + doubleDigit(firstAndSecondNum) + 3
+    
 
 totalSum = 0
 for i in range(1,1001):
@@ -73,9 +77,10 @@ for i in range(1,1001):
         totalSum += doubleDigit(i)
     elif(i < 1000):
         totalSum += tripleDigit(i)
+        print(f"{i} and {tripleDigit(i)}")
     else:
         totalSum += 11
+    
 
 print(totalSum)
-print(tripleDigit(300))
-print(tripleDigit(342))
+

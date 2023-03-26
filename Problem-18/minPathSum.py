@@ -1,14 +1,20 @@
 # Anton Ilic, Mar 6, 2023
 #https://projecteuler.net/problem=18
 
-def backTrack(numberList):
-    '''Backtracks to root, to find sum of paths,'''
-    numberOfRows = len(numberList)
-    maxSum = 0; sum = numberList[0][0]
-    print(numberList[numberOfRows-1][len(numberList[numberOfRows-1])-1])#print the last number
+def findnewMaxLayer(numberList):
+    ''''Returns new 'bottom' layer by finding maximum values from other layers'''
+    #return numberList.pop(len(numberList)-1)
 
-    
-    return numberOfRows
+def findMaxSum(numberList):
+    '''Finds optimal path's sum by finding maximum sum by 'layer'.'''
+    numberOfRows = len(numberList)
+    if(numberOfRows == 1):
+        print(numberList)
+        return numberList[0][0]
+    else:
+        findnewMaxLayer(numberList)
+
+    findMaxSum(numberList)
 
 numbers = []
 with open('data.txt') as f:
@@ -18,4 +24,4 @@ with open('data.txt') as f:
             numToInsert.append(int(field))
         numbers.append(numToInsert)
 
-backTrack(numbers)
+findMaxSum(numbers)

@@ -24,10 +24,11 @@ def findMaxSum(numberList):
     '''Finds optimal path's sum by finding maximum sum by 'layer'.'''
 
     if(len(numberList) == 1):
+        print(numberList)
         return numberList
     else:
-        print(numberList)
-        findnewMaxLayer(numberList)
+        #print(numberList)
+        numberList = findnewMaxLayer(numberList)
 
     findMaxSum(numberList)
 

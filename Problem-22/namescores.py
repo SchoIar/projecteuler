@@ -12,6 +12,16 @@ class LinkedList():
             while(tempNode.next != None):
                 tempNode = tempNode.next
             tempNode.next = Node(name)
+    
+    def insertInOrder(self, name):
+        if(self.head == None):
+            self.head = Node(name)
+        else:
+            tempNode = self.head
+            tempNodeValue = tempNode.name
+            while(tempNodeValue > name):
+                pass #iterate down loop while the listed name is higher then the current name
+
 
 class Node():
     def __init__(self, name):
@@ -29,4 +39,5 @@ for element in currentLine:
     pass #insert in sorted order here
 """
 if __name__ == "__main__":
-    pass
+    namesList = LinkedList()
+    

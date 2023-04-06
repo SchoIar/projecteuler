@@ -1,3 +1,5 @@
+# Anton Ilic, completed Apr 5, 2023
+# https://projecteuler.net/problem=22
 class LinkedList():
     def __init__(self):
         self.head = None
@@ -17,7 +19,7 @@ class Node():
         self.calculatedValue = None
         self.next = None
 
-
+"""
 with open("names.txt", "r+") as file:
     for line in file:
         currentLine = line.strip().replace('"','').split(',')
@@ -25,3 +27,6 @@ with open("names.txt", "r+") as file:
 
 for element in currentLine:
     pass #insert in sorted order here
+"""
+if __name__ == "__main__":
+    pass

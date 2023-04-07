@@ -5,6 +5,7 @@ class LinkedList():
         self.head = None  
     
     def insertInOrder(self, name):
+        name = name.title()
         if(self.head == None):
             self.head = Node(name)
             return True

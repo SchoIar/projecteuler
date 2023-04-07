@@ -7,27 +7,35 @@ class LinkedList():
     def insertInOrder(self, name):
         if(self.head == None):
             self.head = Node(name)
+            return True
         elif(self.head.name < name):
             #inserting at head when head node exists. 
-            newNode = Node(self.head.name)
-            self.head.next = newNode
-            self.head.name = name
+            newNode = Node(name)
+            headNode = self.head
+            headNode.previous = newNode
+            newNode.next = headNode
+            self.head = newNode
+            return True
+        else:
+            insertedNode = Node(name)
+            tempNode = self.head
+            while(tempNode.name >= name): #iterate down untill is LARGER or equal to current      
+                if tempNode.next == None:
+                    tempNode.next = insertedNode
+                    insertedNode.previous = tempNode
+                    return True 
+                previousNode = tempNode      
+                tempNode = tempNode.next
+            previousNode.next = insertedNode
+            insertedNode.previous = previousNode
+            insertedNode.next = tempNode
+            tempNode.previous = insertedNode
+            return True
             
-    """ else:
-        tempNode = self.head
-        while(tempNode.name >= name):             
-            tempNode = tempNode.next
-
-        nextNode = tempNode.next
-        insertedNode = Node(name)
-        insertedNode.next = nextNode
-        tempNode.next = nextNode"""
-            
-                
     def printList(self):
         tempNode = self.head
         while(tempNode != None):
-            print(f"{tempNode.name}, \n")
+            print(f"{tempNode.name}")
             tempNode = tempNode.next
 
 class Node():
@@ -53,7 +61,9 @@ if __name__ == "__main__":
     namesList.insertInOrder(10)
     namesList.insertInOrder(11)
     namesList.insertInOrder(99)
-    namesList.insertInOrder(11)
+    namesList.insertInOrder(111)
+    namesList.insertInOrder(9)
+    namesList.insertInOrder(91)
     namesList.printList()
     #namesList.printList()
     

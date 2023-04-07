@@ -36,18 +36,18 @@ class LinkedList():
             tempNode.previous = insertedNode
             return True
             
-    def printValues(self):
-        
+    def totalValues(self):
+        totalValues = 0; number = 1
         tempNode = self.head
-        number = 1; 
         while(tempNode != None):
             currentTotal = 0
             for element in tempNode.name:
                 currentTotal += (ord(element)-96)
-            print(f"{tempNode.name} : {currentTotal}")
+            totalValues += currentTotal * number
             tempNode = tempNode.next
             number += 1
 
+        return totalValues
 class Node():
     def __init__(self, name):
         self.name = name
@@ -68,10 +68,13 @@ for element in currentLine:
 """
 if __name__ == "__main__":
     namesList = LinkedList()
-    namesList.insertInOrder("aa")
-    namesList.insertInOrder("aa")
-    namesList.insertInOrder("Raa")
     
-    namesList.printValues()
+    with open("names.txt", "r+") as file:
+        for line in file:
+            currentLine = line.strip().replace('"','').split(',')
+            
+    for element in currentLine:
+        namesList.insertInOrder(element)
+    namesList.totalValues()
     #namesList.printList()
     

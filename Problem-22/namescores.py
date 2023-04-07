@@ -8,7 +8,7 @@ class LinkedList():
         if(self.head == None):
             self.head = Node(name)
             return True
-        elif(self.head.name < name):
+        elif(self.head.name > name):
             #inserting at head when head node exists. 
             newNode = Node(name)
             headNode = self.head
@@ -19,7 +19,7 @@ class LinkedList():
         else:
             insertedNode = Node(name)
             tempNode = self.head
-            while(tempNode.name >= name): #iterate down untill is LARGER or equal to current      
+            while(tempNode.name < name): #iterate down untill is LARGER or equal to current      
                 if tempNode.next == None:
                     tempNode.next = insertedNode
                     insertedNode.previous = tempNode
@@ -58,12 +58,12 @@ for element in currentLine:
 """
 if __name__ == "__main__":
     namesList = LinkedList()
-    namesList.insertInOrder(10)
-    namesList.insertInOrder(11)
-    namesList.insertInOrder(99)
-    namesList.insertInOrder(111)
-    namesList.insertInOrder(9)
-    namesList.insertInOrder(91)
+    namesList.insertInOrder("zanton")
+    namesList.insertInOrder("aaaaaanton")
+    namesList.insertInOrder("rnton")
+    namesList.insertInOrder("anton")
+    
+
     namesList.printList()
     #namesList.printList()
     

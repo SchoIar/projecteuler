@@ -5,8 +5,9 @@ class LinkedList():
         self.head = None  
     
     def insertInOrder(self, name):
-        name = name.title()
+        name = name.lower()
         if(self.head == None):
+            #when empty inserting at head
             self.head = Node(name)
             return True
         elif(self.head.name > name):
@@ -20,24 +21,32 @@ class LinkedList():
         else:
             insertedNode = Node(name)
             tempNode = self.head
-            while(tempNode.name < name): #iterate down untill is LARGER or equal to current      
+            previousNode = None
+            while(tempNode.name <= name): #iterate down until is LARGER or equal to current      
                 if tempNode.next == None:
                     tempNode.next = insertedNode
                     insertedNode.previous = tempNode
                     return True 
                 previousNode = tempNode      
                 tempNode = tempNode.next
-            previousNode.next = insertedNode
-            insertedNode.previous = previousNode
+            if previousNode != None:
+                previousNode.next = insertedNode
+                insertedNode.previous = previousNode
             insertedNode.next = tempNode
             tempNode.previous = insertedNode
             return True
             
-    def printList(self):
+    def printValues(self):
+        
         tempNode = self.head
+        number = 1; 
         while(tempNode != None):
-            print(f"{tempNode.name}")
+            currentTotal = 0
+            for element in tempNode.name:
+                currentTotal += (ord(element)-96)
+            print(f"{tempNode.name} : {currentTotal}")
             tempNode = tempNode.next
+            number += 1
 
 class Node():
     def __init__(self, name):
@@ -59,12 +68,10 @@ for element in currentLine:
 """
 if __name__ == "__main__":
     namesList = LinkedList()
-    namesList.insertInOrder("zanton")
-    namesList.insertInOrder("aaaaaanton")
-    namesList.insertInOrder("rnton")
-    namesList.insertInOrder("anton")
+    namesList.insertInOrder("aa")
+    namesList.insertInOrder("aa")
+    namesList.insertInOrder("Raa")
     
-
-    namesList.printList()
+    namesList.printValues()
     #namesList.printList()
     

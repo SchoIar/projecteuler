@@ -1,6 +1,21 @@
 # Anton Ilic, completed Apr 7, 2023
 # https://projecteuler.net/problem=23
 
-# "By mathematical analysis, it can be shown that all integers greater than 28123 can be written as the sum of two abundant numbers"
-for i in range(28123, 0, -1):
-    pass
+def findFactors(number):
+    factors = []
+    for i in range(1, number):
+        if(number%i == 0):
+            factors.append(i)
+    return factors
+
+def isAbundant(number):
+    if sum(findFactors(number)) > number:
+        return True
+    else: #'perfect' number or non-abundant
+        return False 
+
+listOfNumbers = []
+for i in range(1,28124):#(1, 28124):
+    if(isAbundant(i)):
+        listOfNumbers.append(i)
+

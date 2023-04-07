@@ -55,17 +55,6 @@ class Node():
         self.next = None
         self.previous = None
 
-        
-
-"""
-with open("names.txt", "r+") as file:
-    for line in file:
-        currentLine = line.strip().replace('"','').split(',')
-        
-
-for element in currentLine:
-    pass #insert in sorted order here
-"""
 if __name__ == "__main__":
     namesList = LinkedList()
     
@@ -75,6 +64,7 @@ if __name__ == "__main__":
             
     for element in currentLine:
         namesList.insertInOrder(element)
-    namesList.totalValues()
-    #namesList.printList()
+    
+    print(namesList.totalValues())
+
     

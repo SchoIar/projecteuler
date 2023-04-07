@@ -1,4 +1,4 @@
-# Anton Ilic, completed Apr 5, 2023
+# Anton Ilic, completed Apr 7, 2023
 # https://projecteuler.net/problem=22
 class LinkedList():
     def __init__(self):

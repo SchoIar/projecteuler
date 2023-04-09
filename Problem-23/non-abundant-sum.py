@@ -15,7 +15,7 @@ def isAbundant(number):
         return False 
 
 listOfNumbers = []
-for i in range(1,28124):#(1, 28124):
+for i in range(12,28124):#(1, 28124):
     if(isAbundant(i)):
         listOfNumbers.append(i)
 

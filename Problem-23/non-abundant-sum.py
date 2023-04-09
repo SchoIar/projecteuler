@@ -1,6 +1,8 @@
 # Anton Ilic, completed Apr 7, 2023
 # https://projecteuler.net/problem=23
+
 MAXVALUE = 28123
+
 def CalculateAbundantList():
     listOfNumbers = []
     for i in range(12,MAXVALUE+1):#(1, 28124):
@@ -24,7 +26,7 @@ def isAbundant(number):
 def findSumOfValues():
     listOfSums = []
     listOfAbundants = CalculateAbundantList()
-    print('CALLED FINDSUMOFVALUES')
+
     for firstNumber in listOfAbundants:
         for secondNumber in listOfAbundants: 
             sumOfAbundants = firstNumber + secondNumber
@@ -32,8 +34,7 @@ def findSumOfValues():
                 break
             else:
                 listOfSums.append(sumOfAbundants)
-    sumOfValues = 0
-    print('COMPLILING LIST')
+
     listOfNumbers = [*range(0, MAXVALUE+1)]
     l = list(set(listOfNumbers) - set(listOfSums))
     return sum(l)

@@ -7,8 +7,9 @@ def convertToInt(selectedListOfInt):
         number += str(element)
     return int(number)
 
+#TBD
 
-listOfCombos = []
+"""listOfCombos = []
 listOfOneToTen = [*range(0, 10)]
 
 for a in range(0, 10):
@@ -20,6 +21,5 @@ for a in range(0, 10):
 
             listOfCombos.append(convertToInt(listOfOneToTen))
 
+"""
 
-
-print(len(listOfCombos))

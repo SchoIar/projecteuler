@@ -7,7 +7,18 @@ def convertToInt(selectedListOfInt):
         number += str(element)
     return int(number)
 
-#TBD
+def swap(array, indexOne, indexTwo):
+    '''Swaps array indicies One and Two'''
+    temp = array[indexOne]
+    array[indexOne] = array[indexTwo]
+    array[indexTwo] = temp
+    return array
+
+def getSortedArray():
+    #sort in order here, return millionth element 
+    pass
+    
+
 
 """listOfCombos = []
 listOfOneToTen = [*range(0, 10)]

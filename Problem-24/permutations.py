@@ -1,6 +1,7 @@
 # Anton Ilic, Apr 8, 2023
 # https://projecteuler.net/problem=24
 # Note, I found a solution, but it was extremly slow. To speed it up, I read about the 'generation in lexical order' algorithm found here: https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order
+FINALINDEX = 9
 
 def convertToList(selectedIntOrStr):
     listOfNumbers = []
@@ -15,7 +16,6 @@ def convertToInt(selectedListOfInt):
     return int(number)
 
 def swapElements(listOfElements, firstIndex, secondIndex):
-    print(f'Swapping {firstIndex} and {secondIndex}')
     temp = listOfElements[firstIndex]
     listOfElements[firstIndex] = listOfElements[secondIndex]
     listOfElements[secondIndex] = temp
@@ -33,22 +33,20 @@ def getNextPermutation(currentPermutation):
 
     #finding pair where the next element is greater then the current
     currentPermutation = str(currentPermutation)
-    for i in range(0, 8):
+    for i in range(0, FINALINDEX - 1):
         if int(currentPermutation[i]) < int(currentPermutation[i+1]):
             #found pair 
             lowestLargerThenIndex = i
 
-    for i in range(lowestLargerThenIndex - 1, 9):
+    for i in range(lowestLargerThenIndex - 1, FINALINDEX):
         if int(currentPermutation[lowestLargerThenIndex]) < int(currentPermutation[i]):
             largestIndexGreater = i
     
     #swapping values
     currentPermutation = convertToList(currentPermutation)
-    print(currentPermutation)
     currentPermutation = swapElements(currentPermutation, lowestLargerThenIndex, largestIndexGreater)
-    print(currentPermutation)
 
-
+  
     return currentPermutation
 
 listOfCombos = []
@@ -59,7 +57,7 @@ for i in range(1, 1000001):
     #listOfCombos.append(listOfOneToTen)
     listOfOneToTen = getNextPermutation(listOfOneToTen)
 
-print(listOfOneToTen)
+
 
     
 

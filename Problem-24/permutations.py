@@ -1,7 +1,7 @@
 # Anton Ilic, Apr 8, 2023
 # https://projecteuler.net/problem=24
 # Note, I found a solution, but it was extremly slow. To speed it up, I read about the 'generation in lexical order' algorithm found here: https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order
-FINALINDEX = 9
+FINALINDEX = 10
 
 def convertToList(selectedIntOrStr):
     listOfNumbers = []
@@ -9,13 +9,14 @@ def convertToList(selectedIntOrStr):
         listOfNumbers.append(int(i))
     return listOfNumbers
 
-def convertToInt(selectedListOfInt):
+def convertToStr(selectedListOfInt):
     number = ''
     for element in selectedListOfInt:
         number += str(element)
-    return int(number)
-
+    return str(number)
+    
 def swapElements(listOfElements, firstIndex, secondIndex):
+
     temp = listOfElements[firstIndex]
     listOfElements[firstIndex] = listOfElements[secondIndex]
     listOfElements[secondIndex] = temp
@@ -45,34 +46,16 @@ def getNextPermutation(currentPermutation):
     #swapping values
     currentPermutation = convertToList(currentPermutation)
     currentPermutation = swapElements(currentPermutation, lowestLargerThenIndex, largestIndexGreater)
-
+    currentPermutation[lowestLargerThenIndex+1:FINALINDEX] = currentPermutation[lowestLargerThenIndex+1:FINALINDEX][::-1]
   
     return currentPermutation
-
-listOfCombos = []
-listOfOneToTen = [*range(0, 10)]
-listOfOneToTen = convertToInt(listOfOneToTen)
-
-for i in range(1, 1000001):
-    #listOfCombos.append(listOfOneToTen)
-    listOfOneToTen = getNextPermutation(listOfOneToTen)
-
-
-
+    
+nextPerm = getNextPermutation('0123456789')
+for i in range(1, 1000000):
+    print(nextPerm)
+    nextPerm = convertToStr(nextPerm)
+    nextPerm = getNextPermutation(nextPerm)
     
 
 
-"""listOfCombos = []
-listOfOneToTen = [*range(0, 10)]
-
-for a in range(0, 10):
-    for i in listOfOneToTen:
-        for j in listOfOneToTen:
-            tempElement = listOfOneToTen[i]
-            listOfOneToTen[i] = listOfOneToTen[j]
-            listOfOneToTen[j] = tempElement
-
-            listOfCombos.append(convertToInt(listOfOneToTen))
-
-"""
-
+    

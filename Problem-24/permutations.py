@@ -1,4 +1,4 @@
-# Anton Ilic, Apr 8, 2023
+# Anton Ilic, Apr 12, 2023
 # https://projecteuler.net/problem=24
 # Note, I found a solution, but it was extremly slow. To speed it up, I read about the 'generation in lexical order' algorithm found here: https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order
 FINALINDEX = 10

@@ -50,11 +50,13 @@ def getNextPermutation(currentPermutation):
   
     return currentPermutation
     
+
 nextPerm = getNextPermutation('0123456789')
 for i in range(1, 1000000):
-    print(nextPerm)
     nextPerm = convertToStr(nextPerm)
     nextPerm = getNextPermutation(nextPerm)
+
+print(nextPerm)
     
 
 

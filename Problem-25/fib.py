@@ -14,6 +14,6 @@ def FindFibonacciOfNLength(n):
         Elements = FindNextFib(Elements)
         
         
-    return Elements
+    return len(Elements)
 
-print(FindFibonacciOfNLength(3))
+print(FindFibonacciOfNLength(1000))

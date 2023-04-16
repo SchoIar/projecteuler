@@ -4,14 +4,21 @@
 #def findNumOfRepeatingDigitsHelper(reciprocal):
 
 def findNumOfRepeatingDigits(selectedNumber):
+    '''Returns the number of repeating digits '''
     reciprocal = 1/selectedNumber
 
     return selectedNumber
 
 def findLargestRecurringCycle(maxNum):
-    potentialLargest = 0
-    for largestRepeatingNum in range(2, maxNum + 1):
-        potentialLargest = max(findNumOfRepeatingDigits(largestRepeatingNum), potentialLargest)
-    return potentialLargest
+
+    potentialLargestNum = 0; potentialLargestNumDigits = 0
+    for currentNumber in range(2, maxNum + 1):
+        #if the number has more digitsn then the previous potentialLargest digits, set it to potentialLargest
+        currentDigits = findNumOfRepeatingDigits(currentNumber)
+        if potentialLargestNumDigits < currentDigits:
+            potentialLargestNum = currentNumber
+            potentialLargestNumDigits = currentDigits
+
+    return potentialLargestNum
 
 print(findLargestRecurringCycle(10))

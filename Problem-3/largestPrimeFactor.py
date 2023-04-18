@@ -4,6 +4,8 @@
 #very inneficiant and slow, but will eventually give the right answer 
 
 def isPrime(number):
+    if number < 2: #-ive, 0, 1 return false.
+        return False 
     for i in range(2, number // 2 + 1):
         if(number%i == 0):
             return False
@@ -12,17 +14,12 @@ def isPrime(number):
 #Taking from the bottom
 def largestPrimeFactorFinder(number):
     largestPrimeFactor = 1
-    x = 1
-    for x in range(0, number-1):
+    for x in range(2, number // 2 + 1):
         x += 1
         if(number%x == 0):
             if(isPrime(x)):
                 largestPrimeFactor = x
-                print(largestPrimeFactor)
-    if(largestPrimeFactor == 1 and number != 1): 
-        return None
     return largestPrimeFactor
 
 number = 600851475143 
-#largestPrimeFactor = largestPrimeFactorFinder(number)
 print(largestPrimeFactorFinder(number))

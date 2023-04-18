@@ -15,10 +15,10 @@ def isPrime(number):
 def largestPrimeFactorFinder(number):
     largestPrimeFactor = 1
     for x in range(2, number // 2 + 1):
-        x += 1
         if(number%x == 0):
             if(isPrime(x)):
                 largestPrimeFactor = x
+        x += 1
     return largestPrimeFactor
 
 number = 600851475143 

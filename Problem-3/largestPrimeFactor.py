@@ -4,7 +4,7 @@
 #very inneficiant and slow, but will eventually give the right answer 
 
 def isPrime(number):
-    for i in range(2, number):
+    for i in range(2, number // 2 + 1):
         if(number%i == 0):
             return False
     return True

@@ -1,7 +1,6 @@
 #Anton Ilic, Feb 25, 2023, revised April 17, 2023
 #https://projecteuler.net/problem=3
 
-#Taking from the bottom
 def largestPrimeFactorFinder(number):
     i = 2
     while i ** 2< number:
@@ -10,7 +9,6 @@ def largestPrimeFactorFinder(number):
         i = i + 1
 
     return int(number)
-
 
 number = 600851475143 
 print(largestPrimeFactorFinder(number))

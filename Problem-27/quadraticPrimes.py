@@ -27,7 +27,6 @@ def solution():
                 alpha = a
                 beta = b
                 
-
     return alpha * beta
 
 if __name__ == '__main__':

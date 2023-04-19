@@ -3,8 +3,7 @@
 
 def isPrime(number):
     if number < 2: #-ive, 0, 1 return false.
-        return False
-    
+        return False 
     for i in range(2, number // 2 + 1):
         if(number%i == 0):
             return False
@@ -26,7 +25,7 @@ def solution():
                 maxPrimesUpTo = currentPrimesUpTo
                 alpha = a
                 beta = b
-                
+
     return alpha * beta
 
 if __name__ == '__main__':

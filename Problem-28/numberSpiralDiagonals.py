@@ -9,14 +9,18 @@ def findSumOfDiagonal(listOfNumbers):
         sumOfDiagonal += listOfNumbers[a][1000-a] 
     return sumOfDiagonal
 
-def createSpiralOfDiagonals():
-    a = [[0] * 1001 for element in range(1001)] #create array to hold values
+#Generates the 1001 x 1001 spiral
+def createSpiralOfDiagonals(spiralSize):
+    the2Darray = [[0] * spiralSize for element in range(1001)] #create array to hold values
 
     #set middle index (500, 500) to 1, then 501,500 to 2 then 501,501 to 3 then 500, 501 to ... etc.
-    x = 500; y = 500
-
-    for nextNumber in range(1, 1001 ** 2 + 1):
-        pass
+    x = spiralSize // 2; y = spiralSize // 2
+    
+    for nextNumber in range(1, spiralSize ** 2 + 1):
+        
+        the2Darray[x][y] = nextNumber
+        
+        exit()
     #a[x][y] = nextNum
 
 #patern relative to center
@@ -28,4 +32,4 @@ def createSpiralOfDiagonals():
     # -1 -1
 
 
-createSpiralOfDiagonals()
+createSpiralOfDiagonals(1001)

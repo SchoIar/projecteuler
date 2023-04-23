@@ -1,7 +1,6 @@
 # Anton Ilic, Apr 23, 2023
 # https://projecteuler.net/problem=31
 
-# sum of all products whose multiplicand/multiplier/product identity can be written as a 1 through 9 pandigital.
 def isPandigitalProductOf10(a, b, c):
     combined = str(a) + str(b) + str(c)
     if len(combined) == 9 and a * b == c:
@@ -12,11 +11,15 @@ def isPandigitalProductOf10(a, b, c):
     else:
         return False
 
-
-def findPandigitalProductSum(min, max):
-    pass
+def findPandigitalProductSum():
+    listOfPandigitalProducts = []
+    a = 0; b = 0; c = 0; 
+    for a in range(0, 100):
+        for b in range(0, 10000):
+            c = a * b
+            if isPandigitalProductOf10(a, b, c) and c not in listOfPandigitalProducts:
+                listOfPandigitalProducts.append(c)
+    return sum(listOfPandigitalProducts)
 
 if __name__ == '__main__':
-    print(isPandigitalProductOf10(39, 186, 7254))
-#   solution = findPandigitalProductSum(1, 9)
-#   print(solution)
+    print(findPandigitalProductSum())

@@ -1,5 +1,5 @@
 # Anton Ilic, Apr 23, 2023
-# https://projecteuler.net/problem=31
+# https://projecteuler.net/problem=32
 
 # This function checks if the product of a and b (which is c) is a pandigital number
 def isPandigitalProductOf10(a, b, c):

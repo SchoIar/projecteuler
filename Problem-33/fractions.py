@@ -2,9 +2,9 @@
 # https://projecteuler.net/problem=33
 
 def isNonTrivialFractions(a, b, c, d):
-    if d == 0:
+    if d == 0: #cannot divide by 0, thus making 
         pass
-    elif b == c:
+    elif b == c: #cancelling b & c
         numerator = str(a) + str(b)
         denominator = str(c) + str(d)
         fraction = int(numerator) / int(denominator)
@@ -21,10 +21,8 @@ def findNonTrivialFractions():
             for c in range(0, 10):
                 for d in range(0, 10):
 
-                    #ignoring 0, or cases where denominator is 0 (DNE)
                     if c == d == 0 or a == b == 0:
                         continue
-
                     if a > c or (a == c and b >= d):
                         continue
 

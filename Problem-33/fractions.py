@@ -1,10 +1,11 @@
 # Anton Ilic, Apr 23, 2023
 # https://projecteuler.net/problem=33
 
+# This function checks if the fractions a/b and c/d are equal when b and c are canceled out
 def isNonTrivialFractions(a, b, c, d):
-    if d == 0: #cannot divide by 0, thus making 
-        pass
-    elif b == c: #cancelling b & c
+    if d == 0:  # Cannot divide by 0, thus making the fraction invalid
+        return False
+    elif b == c:  # Canceling b & c
         numerator = str(a) + str(b)
         denominator = str(c) + str(d)
         fraction = int(numerator) / int(denominator)
@@ -12,10 +13,11 @@ def isNonTrivialFractions(a, b, c, d):
             return True
     return False
 
+# This function finds all non-trivial fractions with the described conditions
 def findNonTrivialFractions():
     fractionsList = []
 
-    #Fractions in form 'ab/cd', where ab != 0 and cd != 0
+    # Fractions in the form 'ab/cd', where ab != 0 and cd != 0
     for a in range(0, 10):
         for b in range(0, 10):
             for c in range(0, 10):
@@ -31,13 +33,15 @@ def findNonTrivialFractions():
 
     return fractionsList
 
+# This function calculates the product of all the non-trivial fractions found
 def findSolution():
     fractions = findNonTrivialFractions()
     productOfFractions = 1
     for fraction in fractions:
         productOfFractions = productOfFractions * int(fraction[0:2]) / int(fraction[3:5])
-    #denominator is the conjugate
-    return (1/productOfFractions)
+    # The denominator of the simplified product is the conjugate of the reciprocal
+    return (1 / productOfFractions)
 
+# Entry point of the script
 if __name__ == '__main__':
     print(findSolution())

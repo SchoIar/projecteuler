@@ -31,5 +31,13 @@ def findNonTrivialFractions():
 
     return fractionsList
 
+def findSolution():
+    fractions = findNonTrivialFractions()
+    productOfFractions = 1
+    for fraction in fractions:
+        productOfFractions = productOfFractions * int(fraction[0:2]) / int(fraction[3:5])
+    #denominator is the conjugate
+    return (1/productOfFractions)
+
 if __name__ == '__main__':
-    print(findNonTrivialFractions())
+    print(findSolution())

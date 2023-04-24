@@ -2,7 +2,7 @@
 # https://projecteuler.net/problem=33
 
 def isNonTrivialFractions(a, b, c, d):
-    if b == 0 or d == 0:
+    if d == 0:
         pass
     elif b == c:
         numerator = str(a) + str(b)

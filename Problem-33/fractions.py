@@ -28,7 +28,7 @@ def findNonTrivialFractions():
                     if a > c or (a == c and b >= d):
                         continue
 
-                    if isNonTrivialFractions(a, b, c, d):
+                    if isNonTrivialFractions(a, b, c, d): #append fractions as tuples; (numerator, denominator)
                         fractionsList.append((int(f'{a}{b}'), int(f'{c}{d}')))
 
     return fractionsList

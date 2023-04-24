@@ -29,7 +29,7 @@ def findNonTrivialFractions():
                         continue
 
                     if isNonTrivialFractions(a, b, c, d):
-                        fractionsList.append(f'{a}{b}/{c}{d}')
+                        fractionsList.append((int(f'{a}{b}'), int(f'{c}{d}')))
 
     return fractionsList
 
@@ -37,8 +37,8 @@ def findNonTrivialFractions():
 def findSolution():
     fractions = findNonTrivialFractions()
     productOfFractions = 1
-    for fraction in fractions:
-        productOfFractions = productOfFractions * int(fraction[0:2]) / int(fraction[3:5])
+    for numerator, denominator in fractions:
+        productOfFractions = productOfFractions * numerator / denominator
     # The denominator of the simplified product is the conjugate of the reciprocal
     return (1 / productOfFractions)
 

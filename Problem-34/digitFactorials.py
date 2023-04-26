@@ -9,26 +9,33 @@ def factorial(element):
     return fsum  
 
 # Function to check if the sum of the factorials of the digits of a number is equal to the number itself
-def isDigitsEqualToFactorial(number):
-    numberStr = str(number) 
-    factorialSum = 0 
+def is_digits_equal_to_factorial(number, factorial_dict):
+    number_str = str(number) 
+    factorial_sum = 0 
 
-    for element in numberStr:
+    for element in number_str:
         # Add the factorial of the digit to the sum of factorials
-        factorialSum += factorial(int(element))
+        if int(element) in factorial_dict:
+            factorial_sum += factorial_dict[int(element)]
+        else:
+            factorial_sum += factorial(int(element))
 
-    if(number == factorialSum):
-        return True  #
+    if(number == factorial_sum):
+        return True  
     return False  
 
-# Function to find the sum of numbers that satisfy the isDigitsEqualToFactorial condition up to a given maximum number
-def solution(maxNumber):
+# Function to find the sum of numbers that satisfy the is_digits_equal_to_factorial condition up to a given maximum number
+def solution(max_number):
     '''Finds all cases where the digits of the number as factorials are equal to the number'''
-    sumOfDigitsEqualToFactorial = 0 
-    for currentNumber in range(3, maxNumber):
-        if isDigitsEqualToFactorial(currentNumber) == True:
-            sumOfDigitsEqualToFactorial += currentNumber
-    return sumOfDigitsEqualToFactorial 
+    factorial_dict = {}
+    for number in range(0, 10):  # Including 0 in the range to cover the factorial of 0
+        factorial_dict[number] = factorial(number)
+
+    sum_of_digits_equal_to_factorial = 0 
+    for current_number in range(3, max_number):
+        if is_digits_equal_to_factorial(current_number, factorial_dict) == True:
+            sum_of_digits_equal_to_factorial += current_number
+    return sum_of_digits_equal_to_factorial 
 
 # Entry point of the script
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-# Anton Ilic, Apr 25, 2023
+# Anton Ilic, Apr 26, 2023
 # https://projecteuler.net/problem=35
 
 def possibleCircularPrimesOver100(number):

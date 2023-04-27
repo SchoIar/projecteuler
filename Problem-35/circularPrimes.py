@@ -2,21 +2,20 @@
 # https://projecteuler.net/problem=35
 
 def findLenOfListOfCircularPrimes(listOfPrimes):
-    primesList = []
+    circularPrimesList = []
     for prime in listOfPrimes:
-        notPrime = False
-        for firstElement in prime:
-            for secondElement in prime:
-                tempElement = secondElement
-                secondElement = firstElement
-                firstElement = tempElement
-                if(isPrime(int(prime)) == False):
-                    notPrime = True
-            if notPrime == True:
+        notCircularPrime = False
+        primeStr = str(prime)
+        for i in range(len(primeStr)):
+            shifted = primeStr[i:] + primeStr[:i]
+            if not isPrime(int(shifted)):
+                notCircularPrime = True
                 break
-        if notPrime == False:
-            primesList.append(prime)
-    return len(primesList)
+        if not notCircularPrime:
+            circularPrimesList.append(prime)
+
+    return len(circularPrimesList)
+
 
 def possibleCircularPrimesOver100(number):
     #circular primes over 100 will only contain '1' '3' '7' and '9'
@@ -32,7 +31,7 @@ def isPrime(number):
         if possibleCircularPrimesOver100(number) == False:
             return False
     
-    for i in range(3, (number ** 0.5) + 1, 2):
+    for i in range(3, int(number ** 0.5) + 1, 2):
         if number % i == 0:
             return False
     return True
@@ -43,7 +42,6 @@ def solution():
         if isPrime(i):
             print(i)
             listOfPrimes.append(i)
-
     return findLenOfListOfCircularPrimes((listOfPrimes))
 
 # Entry point of the script

@@ -42,7 +42,6 @@ def solution():
     listOfPrimes = []
     for i in range(1, 1000001):
         if isPrime(i):
-            print(i)
             listOfPrimes.append(i)
     return findLenOfListOfCircularPrimes((listOfPrimes))
 

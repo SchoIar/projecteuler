@@ -7,7 +7,7 @@ def findLenOfListOfCircularPrimes(listOfPrimes):
         notCircularPrime = False
         primeStr = str(prime)
         for i in range(len(primeStr)):
-            shifted = primeStr[i:] + primeStr[:i]
+            shifted = primeStr[i:] + primeStr[:i] #Rotating digit by slicing
             if not isPrime(int(shifted)):
                 notCircularPrime = True
                 break
@@ -18,7 +18,7 @@ def findLenOfListOfCircularPrimes(listOfPrimes):
 
 
 def possibleCircularPrimesOver100(number):
-    #circular primes over 100 will only contain '1' '3' '7' and '9'
+    #circular primes over 100 will only contain '1' '3' '7' and '9', and are rotations
     number = str(number)
     if ('2' in number or '4' in number or '5' in number or '6' in number or '8' in number or '0' in number):
         return False
@@ -48,8 +48,3 @@ def solution():
 if __name__ == '__main__':
     circularPrimesCount = solution()
     print(circularPrimesCount)
-
-
-
-## Safe assumption that any number with an even number or 0, 5 in it is not a circular prime, except 2 & 5...
-## The other numbers greater then 100 SHOULD be combinations of '1' '3' '7' and '9'

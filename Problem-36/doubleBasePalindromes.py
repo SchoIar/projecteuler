@@ -1,5 +1,6 @@
 # Anton Ilic, Apr 27, 2023
 # https://projecteuler.net/problem=36
+
 import unittest
 
 def isDecimalPalindrome(number):

@@ -76,5 +76,4 @@ class TestCircularPrimes(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main(argv=[''], exit=False)
     circularPrimesCount = solution(1000000)
-    print(
-        f'Number of circular primes under and up to a million: {circularPrimesCount}')
+    print(f'Number of circular primes under and up to a million: {circularPrimesCount}')

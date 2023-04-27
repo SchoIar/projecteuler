@@ -32,7 +32,7 @@ def solution(maxNumber):
             sumOfDoubleDigitPalindromes += number
     return sumOfDoubleDigitPalindromes
 
-class TestCircularPrimes(unittest.TestCase):
+class TestDoubleBasePalindromes(unittest.TestCase):
     def test_isDecimalPalindrome(self):
         self.assertFalse(isDecimalPalindrome(81))
         self.assertTrue(isDecimalPalindrome(8187818))

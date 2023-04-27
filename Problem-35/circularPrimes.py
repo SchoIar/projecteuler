@@ -26,11 +26,8 @@ def possibleCircularPrimesOver100(number):
 
 
 def isPrime(number):
-    if number % 2 == 0:  # or possibleCircularPrimesOver100(number) == False:
+    if number % 2 == 0 or (number > 100 and possibleCircularPrimesOver100(number) == False):  
         return False
-    if number > 100:
-        if possibleCircularPrimesOver100(number) == False:
-            return False
 
     for i in range(3, int(number ** 0.5) + 1, 2):
         if number % i == 0:
@@ -44,7 +41,6 @@ def solution():
         if isPrime(i):
             listOfPrimes.append(i)
     return findLenOfListOfCircularPrimes((listOfPrimes))
-
 
 # Entry point of the script
 if __name__ == '__main__':

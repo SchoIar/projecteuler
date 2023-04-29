@@ -8,8 +8,8 @@ def findNumberOfSolutions(perimeter):
     solutions = {}
 
     #Body of code, find solutions, append them to solutions.
-    for a in range(1, perimeter + 1):
-        for b in range(1, perimeter + 1):
+    for a in range(1, perimeter // 2 + 1):
+        for b in range(1, perimeter // 2 + 1):
             c = (a**2 + b**2) ** 0.5
             if a + b + c == perimeter:
                 maxNum = max(a,b); minNum = min(a, b)

@@ -25,6 +25,10 @@ def isPandigitalPrime(number):
     else:
         return False
 
+def solution():
+    for number in range(987654321 + 1, 1, -2):
+        if isPandigitalPrime(number):
+            return number
 class TestPandigitalPrimes(unittest.TestCase):
     def test_isPandigitalToNThDigit(self):
         self.assertTrue(isPandigitalToNThDigit(123))
@@ -38,4 +42,5 @@ class TestPandigitalPrimes(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main(argv=[''], exit=False)
-    pass
+    largestPandigitalPrime = solution()
+    print(largestPandigitalPrime)

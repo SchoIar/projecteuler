@@ -8,7 +8,11 @@ def createConcatNumber():
     return concatenationAfterDecimal
 
 def solution():
-    pass
+    concatNum = createConcatNumber()
+    product = 1
+    for number in range(0, 7):
+        product = product * int(concatNum[10**number])
+    return product
 
 if __name__ == '__main__':
-    pass
+    print(solution())

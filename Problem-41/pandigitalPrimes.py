@@ -19,9 +19,22 @@ def isPandigitalToNThDigit(number):
             return False
     return True
 
+def isPandigitalPrime(number):
+    if isPandigitalToNThDigit(number) and isPrime(number):
+        return True
+    else:
+        return False
+
 class TestPandigitalPrimes(unittest.TestCase):
     def test_isPandigitalToNThDigit(self):
         self.assertTrue(isPandigitalToNThDigit(123))
+    
+    def test_isPrime(self):
+        self.assertTrue(isPrime(13))
+        self.assertFalse(isPrime(21321))
+
+    def test_isPandigitalPrime(self):
+        isPandigitalPrime(2143)
 
 if __name__ == '__main__':
     unittest.main(argv=[''], exit=False)

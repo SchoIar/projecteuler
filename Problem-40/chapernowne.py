@@ -14,5 +14,9 @@ def solution():
         product = product * int(concatNum[10**number - 1])
     return product
 
+def test_solution():
+    assert solution() == 210
+
 if __name__ == '__main__':
+    test_solution()
     print(solution())

@@ -11,7 +11,7 @@ def solution():
     concatNum = createConcatNumber()
     product = 1
     for number in range(0, 7):
-        product = product * int(concatNum[10**number])
+        product = product * int(concatNum[10**number - 1])
     return product
 
 if __name__ == '__main__':

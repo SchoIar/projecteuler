@@ -19,10 +19,10 @@ def calculateSum(maxNumber):
         for diagonal in range(0, 4):
             previousNumber += increment
             sum += previousNumber
-        increment += 2
+        increment += 2 #each 'layer' adds two more seperation from diagonals
 
     return sum
 
 
 if __name__ == '__main__':
-    print(calculateSum(1001))
+    print(calculateSum(3))

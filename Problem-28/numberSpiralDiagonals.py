@@ -22,7 +22,7 @@ def calculateSum(maxNumber):
     return sum
 
 if __name__ == '__main__':
-    print(calculateSum(1000))
+    print(calculateSum(1001))
 
 
 

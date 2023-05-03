@@ -1,17 +1,23 @@
 # Anton Ilic, updated and improved on Mar 21, 2023
 # https://projecteuler.net/problem=12
 
-# Let prime factorization of n = p1^a1 * p2^a2.... *pn^an 
-# total num of divisors is (a1+1)(a2+1)...(an+1)
-
-
 def numberOfDivisors(number):
-    #divisiorsFound = []
-
-    numOfDivisors = 2 #removes redudant calculation for the number itself and 1. 
-    for i in range(2,int(number ** 0.5) + 1): #could take the sqrt to solve. 
-        if(number%i == 0):
-            numOfDivisors += 1
-    #return len(divisiorsFound)
+    numOfDivisors = 0
+    for i in range(1, int(number ** 0.5) + 1):
+        if number % i == 0:
+            if number // i == i: #perfect square
+                numOfDivisors += 1
+            else:
+                numOfDivisors += 2 #counting both divisors
     return numOfDivisors
 
+def findTriangleNumber():
+    triangle_number = 0
+    i = 1
+    while True:
+        triangle_number += i
+        if numberOfDivisors(triangle_number) >= 500:
+            return triangle_number
+        i += 1
+
+print(findTriangleNumber())

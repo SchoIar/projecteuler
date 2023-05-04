@@ -12,4 +12,18 @@ def readData():
                 wordslist = line.strip().replace('"','').split(',')
     return wordslist
 
+def nextTriangleValue(number):
+    return (number, int(0.5 * number * (1 + number)))
 
+def generateTriangleNumbers(listOfTriangles, upToNumber):
+    if listOfTriangles == []:
+         listOfTriangles.append((1, 1))
+    maxTuple = listOfTriangles[len(listOfTriangles) - 1] 
+    maxKey = maxTuple[0]; maxValue = maxTuple[1]
+    while upToNumber > maxKey:
+        maxKey += 1
+        print(nextTriangleValue(maxKey))
+        listOfTriangles.append(nextTriangleValue(maxKey))
+    return listOfTriangles
+
+generateTriangleNumbers([(1, 1)], 100)

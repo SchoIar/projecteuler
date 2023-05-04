@@ -18,29 +18,25 @@ def convertListOfWordsToNumbers(listOfWords):
     return listOfWords
 
 def nextTriangleValue(number):
-    return (number, int(0.5 * number * (1 + number)))
+    return (int(0.5 * number * (1 + number)))
 
-def generateTriangleNumbers(listOfTriangles, upToNumber):
-    if listOfTriangles == []:
-         listOfTriangles.append((1, 1))
-    maxTuple = listOfTriangles[len(listOfTriangles) - 1] 
-    maxKey = maxTuple[0]; maxValue = maxTuple[1]
-    while upToNumber > maxKey:
-        maxKey += 1
-        listOfTriangles.append(nextTriangleValue(maxKey))
-    return listOfTriangles
+def generateTriangleNumbers(maxNumber):
+    numbersList = []
+    number = 1
+    while(nextTriangleValue(number - 1) < maxNumber):
+         numbersList.append(nextTriangleValue(number))
+         number += 1
+    return numbersList
 
 def solution():
     numberOfTriangleNumbers = 0
     numbersList = readData()
     numbersList = convertListOfWordsToNumbers(numbersList)
-    
-    '''listOfTriangleNumbers = generateTriangleNumbers([], 10)
-    maxNumber = listOfTriangleNumbers[len(listOfTriangleNumbers) - 1][1]
+    maxNumber = max(numbersList)
+    triangleNumberList = generateTriangleNumbers(maxNumber)
     for number in numbersList:
-        if number in numbersList:
-            numberOfTriangleNumbers += 1
-        elif number > maxNumber:
-    '''
+         if number in triangleNumberList:
+              numberOfTriangleNumbers += 1
+    return numberOfTriangleNumbers
     
 print(solution())

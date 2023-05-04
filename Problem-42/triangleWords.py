@@ -12,6 +12,11 @@ def readData():
                 wordslist = line.strip().replace('"','').split(',')
     return wordslist
 
+def convertListOfWordsToNumbers(listOfWords):
+    for word in range(0, len(listOfWords)):
+         listOfWords[word] = findWordValue(listOfWords[word])
+    return listOfWords
+
 def nextTriangleValue(number):
     return (number, int(0.5 * number * (1 + number)))
 
@@ -22,8 +27,20 @@ def generateTriangleNumbers(listOfTriangles, upToNumber):
     maxKey = maxTuple[0]; maxValue = maxTuple[1]
     while upToNumber > maxKey:
         maxKey += 1
-        print(nextTriangleValue(maxKey))
         listOfTriangles.append(nextTriangleValue(maxKey))
     return listOfTriangles
 
-generateTriangleNumbers([(1, 1)], 100)
+def solution():
+    numberOfTriangleNumbers = 0
+    numbersList = readData()
+    numbersList = convertListOfWordsToNumbers(numbersList)
+    
+    '''listOfTriangleNumbers = generateTriangleNumbers([], 10)
+    maxNumber = listOfTriangleNumbers[len(listOfTriangleNumbers) - 1][1]
+    for number in numbersList:
+        if number in numbersList:
+            numberOfTriangleNumbers += 1
+        elif number > maxNumber:
+    '''
+    
+print(solution())

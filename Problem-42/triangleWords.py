@@ -48,4 +48,6 @@ def solution():
     return numberOfTriangleNumbers
 
 
-print(solution())
+if __name__ == '__main__':
+    triangleWordsForData = solution()
+    print(triangleWordsForData)

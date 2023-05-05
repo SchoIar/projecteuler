@@ -1,6 +1,7 @@
-# Anton Ilic, May 4, 2023
+# Anton Ilic, May 5, 2023
 # https://projecteuler.net/problem=43
 import itertools
+
 
 def generatePandigitalNumber():
     firstPandigitalNumber = '0123456789'
@@ -12,6 +13,7 @@ def generatePandigitalNumber():
             elementStr = elementStr + str(thing)
         newList.append(elementStr)
     return newList
+
 
 def subStringDivisable(number):
     numStr = str(number)
@@ -29,8 +31,8 @@ def solution():
         if subStringDivisable(number):
             sumOfDivisibleSubstrings += int(number)
     return sumOfDivisibleSubstrings
-    
+
+
 if __name__ == '__main__':
     sum_of_divisible_substrings = solution()
     print(sum_of_divisible_substrings)
-   

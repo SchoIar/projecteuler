@@ -1,19 +1,14 @@
 # Anton Ilic, Mar 6, 2023
 #https://projecteuler.net/problem=15
 
-#Representing 20 x 20 grid by it's coordinates, then performing a breadth first search
+def factorial(n):
+    nFactorial = 1
+    for i in range(1, n + 1):
+        nFactorial = nFactorial * i
+    return nFactorial
 
-grid = []
-line = []
-for x in range(0, 21):
-    line = []
-    for y in range(0, 21):
-        a = (x, y)
-        line.append(a)
-    grid.append(line)
-        
-print(grid)
+def solvebyBinomialCoefficient(n, k):
+    #n represents the total number of moves (40 in this case), and k represents the number of right moves (20 in this case)
+    return int(factorial(n)/(factorial(n-k)*factorial(k)))
 
-
-#See https://en.wikipedia.org/wiki/Permutation for mathematical explanation for problem.
-
+print(solvebyBinomialCoefficient(40, 20))

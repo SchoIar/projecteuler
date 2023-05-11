@@ -5,6 +5,8 @@
 # n=(-b±√(b²-4ac))/(2a)
 
 def isPentagonalNumber(number):
+    if number < 1:
+        return False
     '''
     Checks if the number is Pentagonal (see math below)
     P = n(3n - 1)/2

@@ -27,7 +27,6 @@ def solution():
     while len(truncatable_primes) < 11:  # there are only 11 such truncatable primes
         if isTruncablePrime(i):
             truncatable_primes.append(i)
-            
         i += 2  # only check odd numbers
     return sum(truncatable_primes)
 

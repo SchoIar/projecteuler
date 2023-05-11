@@ -37,7 +37,7 @@ def generatePentagonalNumbers():
                         if maxDifference > abs(a-b):
                             maxNumbers = (a, b); maxDifference = abs(a-b)
                             return maxNumbers
-        return maxNumbers
+        
 
 
 if __name__ == '__main__':

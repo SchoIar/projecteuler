@@ -22,9 +22,24 @@ def findPentagonal(n):
 
 
 def generatePentagonalNumbers():
-    pass
+    pentagonlList = []
+    number = 1
+    maxNumbers = (0, 0); maxDifference = -1
+    while True:
+        pentagonlList.append(findPentagonal(number))
+        number += 1
+        for a in pentagonlList:
+            for b in pentagonlList:
+                if a == b:
+                    continue
+                else:
+                    if isPentagonalNumber(a+b) and isPentagonalNumber(a-b):
+                        if maxDifference > abs(a-b):
+                            maxNumbers = (a, b); maxDifference = abs(a-b)
+                            return maxNumbers
+        return maxNumbers
 
 
 if __name__ == '__main__':
-    print(isPentagonalNumber(22))
+    print(generatePentagonalNumbers())
     pass

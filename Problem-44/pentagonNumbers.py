@@ -28,7 +28,7 @@ def generatePentagonalNumbers():
                     continue
                 else:
                     if isPentagonalNumber(a+b) and isPentagonalNumber(a-b):
-                        if maxDifference > abs(a-b):
+                        if maxDifference < abs(a-b):
                             maxNumbers = (a, b); maxDifference = abs(a-b)
                             return maxNumbers
         

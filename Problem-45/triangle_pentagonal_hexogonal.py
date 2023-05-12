@@ -2,6 +2,8 @@
 # https://projecteuler.net/problem=45
 import unittest
 # Brute force method
+
+
 def findTriangleNumber(key):
     return int(key * (key + 1) / 2)
 

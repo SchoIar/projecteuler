@@ -22,9 +22,10 @@ def solution():
         currentPentagonalNumber = findPentagonal(number)
         for a in pentagonlList:
             if(isPentagonalNumber(abs(a-currentPentagonalNumber)) and isPentagonalNumber(a+currentPentagonalNumber)):
-                return (a, currentPentagonalNumber)
+                return(currentPentagonalNumber - a)
         pentagonlList.append(currentPentagonalNumber)
         number += 1
+
         
 if __name__ == '__main__':
     print(solution())

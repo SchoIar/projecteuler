@@ -15,25 +15,17 @@ def findPentagonal(n):
     return int(n*(3*n - 1)/2)
 
 
-def generatePentagonalNumbers():
+def solution():
     pentagonlList = []
     number = 1
-    maxNumbers = (0, 0); maxDifference = -1
     while True:
-        pentagonlList.append(findPentagonal(number))
-        number += 1
+        currentPentagonalNumber = findPentagonal(number)
         for a in pentagonlList:
-            for b in pentagonlList:
-                if a == b:
-                    continue
-                else:
-                    if isPentagonalNumber(a+b) and isPentagonalNumber(a-b):
-                        if maxDifference < abs(a-b):
-                            maxNumbers = (a, b); maxDifference = abs(a-b)
-                            return maxNumbers
+            if(isPentagonalNumber(abs(a-currentPentagonalNumber)) and isPentagonalNumber(a+currentPentagonalNumber)):
+                return (a, currentPentagonalNumber)
+        pentagonlList.append(currentPentagonalNumber)
+        number += 1
         
-
-
 if __name__ == '__main__':
-    print(generatePentagonalNumbers())
+    print(solution())
     pass

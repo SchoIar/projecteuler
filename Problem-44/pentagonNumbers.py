@@ -21,12 +21,12 @@ def solution():
     while True:
         currentPentagonalNumber = findPentagonal(number)
         for a in pentagonlList:
-            if(isPentagonalNumber(abs(a-currentPentagonalNumber)) and isPentagonalNumber(a+currentPentagonalNumber)):
-                return(currentPentagonalNumber - a)
+            if (isPentagonalNumber(abs(a-currentPentagonalNumber)) and isPentagonalNumber(a+currentPentagonalNumber)):
+                return (currentPentagonalNumber - a)
         pentagonlList.append(currentPentagonalNumber)
         number += 1
 
-        
+
 if __name__ == '__main__':
     print(solution())
     pass

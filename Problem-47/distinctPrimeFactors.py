@@ -1,4 +1,4 @@
-# Anton Ilic, May 12, 2023
+# Anton Ilic, May 13, 2023
 # https://projecteuler.net/problem=47
 
 def isPrime(n):

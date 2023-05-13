@@ -11,19 +11,29 @@ def isPrime(n):
             return False
     return True
 
+def isGoldbachNumber(listOfPrimes, number):
+    for prime in listOfPrimes:
+        if prime < number:
+            composite = ((number - prime) / 2) ** 0.5
+            if composite == int(composite):
+                return True
+        else:
+            return False#
+
+
 if __name__ == '__main__':
     #must be an ODD prime + a 2 ** alpha
     primesList = []
-    start = 9
-    for i in range(2, start):
+    currentNumber = 9
+    for i in range(2, currentNumber):
         if isPrime(i):
             primesList.append(i)
+
     while True:
-        if isPrime(start):
-            primesList.append(start)
+        if isPrime(currentNumber):
+            primesList.append(currentNumber)
         else:
-            #test if composite = prime + 2 * a^2
-            # => a = root((comp-prime)/2)
-            pass
-        
-        start += 2
+            if not isGoldbachNumber(primesList, currentNumber):
+                print(currentNumber)
+                break
+        currentNumber += 2 #only iterate through even numbers

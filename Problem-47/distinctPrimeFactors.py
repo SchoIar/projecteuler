@@ -26,17 +26,12 @@ def solution():
         for num in range(0, 5):
             arrayOfPrimeFactors = findDistinctPrimeFactors((i + num), [])
             arrayLength = len(arrayOfPrimeFactors)
-
             if arrayLength == 4:
                 continue
             if num == 4:
-                print(findDistinctPrimeFactors(i, []))
-                print(findDistinctPrimeFactors(i + 1, []))
-                print(findDistinctPrimeFactors(i + 2, []))
-                print(findDistinctPrimeFactors(i + 3, []))
                 return i
-
             break
+
         i += 1
 
 

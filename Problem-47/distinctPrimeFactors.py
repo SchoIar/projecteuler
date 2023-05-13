@@ -25,6 +25,7 @@ def solution():
         for num in range(0, 5):
             arrayOfPrimeFactors = findDistinctPrimeFactors((i + num),[])
             arrayLength = len(arrayOfPrimeFactors)
+
             if arrayLength == 4:
                 continue
             if num == 4:

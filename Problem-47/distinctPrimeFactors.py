@@ -9,6 +9,7 @@ def isPrime(n):
             return False
     return True
 
+
 def findDistinctPrimeFactors(n, listOfFactors):
     for i in range(2, int(n ** 0.5) + 1):
         if n % i == 0: #smallest number found is always the prime factor.
@@ -19,7 +20,22 @@ def findDistinctPrimeFactors(n, listOfFactors):
     return listOfFactors
 
 def solution():
-    pass
-        
+    i = 4
+    while True:
+        for num in range(0, 5):
+            arrayOfPrimeFactors = findDistinctPrimeFactors((i + num),[])
+            arrayLength = len(arrayOfPrimeFactors)
+            if arrayLength == 4:
+                continue
+            if num == 4:
+                print(findDistinctPrimeFactors(i, []))
+                print(findDistinctPrimeFactors(i + 1, []))
+                print(findDistinctPrimeFactors(i + 2, []))
+                print(findDistinctPrimeFactors(i + 3, []))
+                return i
+            
+            break
+        i += 1
+
 if __name__ == '__main__':
-    print(findDistinctPrimeFactors(644, []))
+    print(solution())

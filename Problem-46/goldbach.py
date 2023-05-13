@@ -1,7 +1,7 @@
-# Anton Ilic, May 11, 2023
+# Anton Ilic, May 12, 2023
 # https://projecteuler.net/problem=46
 
-#Odd composite numbers (all the odd integers that are not prime).
+# Odd composite numbers (all the odd integers that are not prime).
 
 def isPrime(n):
     if n < 2:
@@ -11,6 +11,7 @@ def isPrime(n):
             return False
     return True
 
+
 def isGoldbachNumber(listOfPrimes, number):
     for prime in listOfPrimes:
         if prime < number:
@@ -19,6 +20,7 @@ def isGoldbachNumber(listOfPrimes, number):
                 return True
         else:
             return False
+
 
 def solution():
     primesList = []
@@ -33,8 +35,8 @@ def solution():
         else:
             if not isGoldbachNumber(primesList, currentNumber):
                 return currentNumber
-        currentNumber += 2 #only iterate through even numbers
-    
+        currentNumber += 2  # only iterate through even numbers
+
 
 if __name__ == '__main__':
     goldbachNumber = solution()

@@ -21,5 +21,5 @@ def findDistinctPrimeFactors(n, listOfFactors):
 def solution():
     pass
         
-
-print(findDistinctPrimeFactors(644, []))
+if __name__ == '__main__':
+    print(findDistinctPrimeFactors(644, []))

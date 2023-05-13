@@ -18,11 +18,9 @@ def isGoldbachNumber(listOfPrimes, number):
             if composite == int(composite):
                 return True
         else:
-            return False#
+            return False
 
-
-if __name__ == '__main__':
-    #must be an ODD prime + a 2 ** alpha
+def solution():
     primesList = []
     currentNumber = 9
     for i in range(2, currentNumber):
@@ -34,6 +32,10 @@ if __name__ == '__main__':
             primesList.append(currentNumber)
         else:
             if not isGoldbachNumber(primesList, currentNumber):
-                print(currentNumber)
-                break
+                return currentNumber
         currentNumber += 2 #only iterate through even numbers
+    
+
+if __name__ == '__main__':
+    goldbachNumber = solution()
+    print(goldbachNumber)

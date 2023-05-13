@@ -21,16 +21,18 @@ def findDistinctPrimeFactors(n, listOfFactors):
 
 
 def solution():
+    consecativeCount = 0
     i = 1
     while True:
-        for num in range(0, 5):
-            arrayOfPrimeFactors = findDistinctPrimeFactors((i + num), [])
-            arrayLength = len(arrayOfPrimeFactors)
-            if arrayLength == 4:
-                continue
-            if num == 4:
-                return i
-            break
+        arrayOfPrimeFactors = findDistinctPrimeFactors((i), [])
+        arrayLength = len(arrayOfPrimeFactors)
+        if arrayLength == 4:
+            consecativeCount += 1
+        else:
+            consecativeCount = 0
+
+        if consecativeCount == 4:
+            return i - 3
 
         i += 1
 

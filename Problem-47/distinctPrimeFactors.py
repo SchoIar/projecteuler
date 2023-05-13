@@ -30,10 +30,8 @@ def solution():
             consecativeCount += 1
         else:
             consecativeCount = 0
-
         if consecativeCount == 4:
             return i - 3
-
         i += 1
 
 

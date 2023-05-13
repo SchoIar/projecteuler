@@ -1,5 +1,5 @@
 # Anton Ilic, May 13, 2023
-# https://projecteuler.net/problem=47
+# https://projecteuler.net/problem=48
 
 def findLastTenDigits(n):
     return str(n ** n)[-10:]

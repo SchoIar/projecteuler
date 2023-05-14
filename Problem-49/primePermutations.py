@@ -70,11 +70,11 @@ def isThreeEquallySpaced(primesList):
 
 
 def solution():
-
-    #findPrimePermutations()
     primePermutationsList = findPrimePermutations()
-    print(primePermutationsList)
-
+    solution = ''
+    for solutionNumber in primePermutationsList:
+        solution += str(solutionNumber)
+    return solution
 
 if __name__ == '__main__':
     print(solution())

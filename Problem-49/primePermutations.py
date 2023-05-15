@@ -71,11 +71,7 @@ def isThreeEquallySpaced(primesList):
     return 0
 
 def find_seq_with_same_diff(listOfPrimePermutations):
-    for number in range(0, len(listOfPrimePermutations) - 1):
-        if listOfPrimePermutations[number] < listOfPrimePermutations[number+1]:
-            temp = listOfPrimePermutations[number]
-            listOfPrimePermutations[number] = listOfPrimePermutations[number+1]
-            listOfPrimePermutations[number+1] = temp
+    listOfPrimePermutations.sort()
 
     lengthOfList = len(listOfPrimePermutations)
     for i in range(lengthOfList):
@@ -86,14 +82,9 @@ def find_seq_with_same_diff(listOfPrimePermutations):
     return None
 
 
-def solution():
-    primePermutationsList = findPrimePermutations()
-    solution = ''
-    for solutionNumber in primePermutationsList:
-        solution += str(solutionNumber)
-    return solution
-
 
 if __name__ == '__main__':
-    answer = solution()
-    #print(answer)
+    print(find_seq_with_same_diff([1487, 4817, 8147]))
+    answer = findPrimePermutations()
+    print(answer)
+

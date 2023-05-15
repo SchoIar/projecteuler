@@ -84,7 +84,6 @@ def find_seq_with_same_diff(listOfPrimePermutations):
 
 
 if __name__ == '__main__':
-    print(find_seq_with_same_diff([1487, 4817, 8147]))
-    answer = findPrimePermutations()
-    print(answer)
+    solutions = findPrimePermutations()
+    print(solutions)
 

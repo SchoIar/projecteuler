@@ -30,6 +30,7 @@ def findPrimePermutations():
     listOfPrimePermutations = []
     for number in listOfPrimes:
         permutationsList = permutations(str(number))
+        permutationsList = list(dict.fromkeys(permutationsList))
         primePermutationsList = []
         mySet = set()
         for element in permutationsList:
@@ -46,27 +47,43 @@ def findPrimePermutations():
 
         if len(primePermutationsList) >= 3:
             if isThreeEquallySpaced(primePermutationsList) != 0:
-                listOfPrimePermutations.append(primePermutationsList)
-                print(primePermutationsList)
-    return listOfPrimePermutations
+                permutationWithDifference = find_seq_with_same_diff(primePermutationsList)
+                if permutationWithDifference != None and permutationWithDifference not in listOfPrimePermutations:
+                    listOfPrimePermutations.append(permutationWithDifference)
 
+    return listOfPrimePermutations
 
 def isThreeEquallySpaced(primesList):
     for a in primesList:
-        #checking for the "middle" number, which has two equal differences 
+        # checking for the "middle" number, which has two equal differences
         differencesForNumber = []
         checkedNumbers = []
         #primesList = list(dict.fromkeys(primesList))
         for b in primesList:
             if a == b:
                 continue
-            
-            difference = abs(a - b) 
-            if difference in differencesForNumber and (a not in checkedNumbers and b not in checkedNumbers):
+
+            difference = abs(a - b)
+            if difference in differencesForNumber:
                 return difference
             checkedNumbers.append(b)
-            differencesForNumber.append(difference)     
+            differencesForNumber.append(difference)
     return 0
+
+def find_seq_with_same_diff(listOfPrimePermutations):
+    for number in range(0, len(listOfPrimePermutations) - 1):
+        if listOfPrimePermutations[number] < listOfPrimePermutations[number+1]:
+            temp = listOfPrimePermutations[number]
+            listOfPrimePermutations[number] = listOfPrimePermutations[number+1]
+            listOfPrimePermutations[number+1] = temp
+
+    lengthOfList = len(listOfPrimePermutations)
+    for i in range(lengthOfList):
+        for j in range(i+1, lengthOfList):
+            if 2*listOfPrimePermutations[j] - listOfPrimePermutations[i] in listOfPrimePermutations[j+1:]:  
+                # Check if the number with the same difference exists in the rest of the list
+                return str(listOfPrimePermutations[i]) + str(listOfPrimePermutations[j]) + str(2*listOfPrimePermutations[j] - listOfPrimePermutations[i])
+    return None
 
 
 def solution():
@@ -76,5 +93,7 @@ def solution():
         solution += str(solutionNumber)
     return solution
 
+
 if __name__ == '__main__':
-    print(solution())
+    answer = solution()
+    #print(answer)

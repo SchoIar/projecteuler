@@ -46,31 +46,13 @@ def findPrimePermutations():
                     primePermutationsList.append(element)
 
         if len(primePermutationsList) >= 3:
-            if isThreeEquallySpaced(primePermutationsList) != 0:
-                permutationWithDifference = find_seq_with_same_diff(
-                    primePermutationsList)
-                if permutationWithDifference != None and permutationWithDifference not in listOfPrimePermutations:
-                    listOfPrimePermutations.append(permutationWithDifference)
+
+            permutationWithDifference = find_seq_with_same_diff(primePermutationsList)
+            if permutationWithDifference != None and permutationWithDifference not in listOfPrimePermutations:
+                listOfPrimePermutations.append(permutationWithDifference)
 
     return listOfPrimePermutations
 
-
-def isThreeEquallySpaced(primesList):
-    for a in primesList:
-        # checking for the "middle" number, which has two equal differences
-        differencesForNumber = []
-        checkedNumbers = []
-        #primesList = list(dict.fromkeys(primesList))
-        for b in primesList:
-            if a == b:
-                continue
-
-            difference = abs(a - b)
-            if difference in differencesForNumber:
-                return difference
-            checkedNumbers.append(b)
-            differencesForNumber.append(difference)
-    return 0
 
 
 def find_seq_with_same_diff(listOfPrimePermutations):

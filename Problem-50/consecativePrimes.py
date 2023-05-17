@@ -10,17 +10,33 @@ def isPrime(n):
     return True
 
 
+def findSumOfPrimes(primeList):
+    #find prime under max prime which can be written as the sum of the most consecutive primes
+    highestPrimeSum = 0
+    for prime in range(0, len(primeList) - 1):
+        primeSum = 0; nextPrimeIndex = prime
+        while(primeSum < max(primeList)):
+            primeSum += primeList[nextPrimeIndex]
+            nextPrimeIndex = prime + 1
+            if primeSum in primeList:
+                if highestPrimeSum < primeSum:
+                    highestPrimeSum = primeSum
+    return highestPrimeSum
+
+
+
+
 def solution(maxNumber):
     primesList = []
     for i in range(2, maxNumber + 1):
         if isPrime(i):
             primesList.append(i)
-    maxPrimeSumPrime = 0
-    #possible sums are at the end of primeList.. iterate through them to see if possible to be created 
-    #with other numbers in primelist
+    print(primesList)
+    maxPrimeSumPrime = findSumOfPrimes(primesList)
 
-    return max(primesList)
+    return maxPrimeSumPrime
 
 if __name__ == '__main__':
-    solution = solution(1000000)
+    #solution = solution(1000000)
+    solution = solution(100)
     print(solution)

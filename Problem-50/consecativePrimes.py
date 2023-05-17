@@ -33,12 +33,10 @@ def solution(maxNumber):
     for i in range(2, maxNumber + 1):
         if isPrime(i):
             primesList.append(i)
-    print(primesList)
     maxPrimeSumPrime = findSumOfPrimes(primesList)
 
     return maxPrimeSumPrime
 
 if __name__ == '__main__':
-    #solution = solution(1000000)
-    solution = solution(100)
+    solution = solution(1000000)  
     print(solution)

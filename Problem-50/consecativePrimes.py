@@ -13,7 +13,7 @@ def isPrime(n):
 def findSumOfPrimes(primeSet):
     highestLengthPrime = 0
     maxPrimeLength = 0
-    primeList = sorted(list(primeSet))
+    primeList = sorted(list(primeSet))  # set is unordered
     max_prime = max(primeList)
     for prime in range(0, len(primeList) - 1):
         primeSum = 0
@@ -21,6 +21,7 @@ def findSumOfPrimes(primeSet):
         while primeSum < max_prime:
             primeSum += primeList[nextPrimeIndex]
             nextPrimeIndex += 1
+            # checking lenth of chain, if larger this is the one w the highest length prime
             if primeSum in primeSet and nextPrimeIndex - prime > maxPrimeLength:
                 maxPrimeLength = nextPrimeIndex - prime
                 highestLengthPrime = primeSum
@@ -32,10 +33,9 @@ def solution(maxNumber):
     for i in range(2, maxNumber + 1):
         if isPrime(i):
             primesSet.add(i)
-    maxPrimeSumPrime = findSumOfPrimes(primesSet)
-    return maxPrimeSumPrime
+    return findSumOfPrimes(primesSet)
 
 
 if __name__ == '__main__':
-    solution = solution(1000000)  #solution(1000000)  
+    solution = solution(1000000)
     print(solution)

@@ -47,12 +47,12 @@ def findPrimePermutations():
 
         if len(primePermutationsList) >= 3:
 
-            permutationWithDifference = find_seq_with_same_diff(primePermutationsList)
+            permutationWithDifference = find_seq_with_same_diff(
+                primePermutationsList)
             if permutationWithDifference != None and permutationWithDifference not in listOfPrimePermutations:
                 listOfPrimePermutations.append(permutationWithDifference)
 
     return listOfPrimePermutations
-
 
 
 def find_seq_with_same_diff(listOfPrimePermutations):

@@ -38,5 +38,5 @@ def solution(maxNumber):
     return maxPrimeSumPrime
 
 if __name__ == '__main__':
-    solution = solution(1000000)  
+    solution = solution(1000000)  #solution(1000000)  
     print(solution)

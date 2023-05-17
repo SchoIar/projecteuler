@@ -17,7 +17,7 @@ def findSumOfPrimes(primeList):
         primeSum = 0; nextPrimeIndex = prime
         while(primeSum < max(primeList)):
             primeSum += primeList[nextPrimeIndex]
-            nextPrimeIndex = prime + 1
+            nextPrimeIndex += 1
 
             if primeSum in primeList and nextPrimeIndex - prime > maxPrimeLength:
                 maxPrimeLength = nextPrimeIndex - prime

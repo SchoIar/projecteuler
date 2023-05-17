@@ -12,16 +12,18 @@ def isPrime(n):
 
 def findSumOfPrimes(primeList):
     #find prime under max prime which can be written as the sum of the most consecutive primes
-    highestPrimeSum = 0
+    highestLengthPrime = 0; maxPrimeLength = 0
     for prime in range(0, len(primeList) - 1):
         primeSum = 0; nextPrimeIndex = prime
         while(primeSum < max(primeList)):
             primeSum += primeList[nextPrimeIndex]
             nextPrimeIndex = prime + 1
-            if primeSum in primeList:
-                if highestPrimeSum < primeSum:
-                    highestPrimeSum = primeSum
-    return highestPrimeSum
+
+            if primeSum in primeList and nextPrimeIndex - prime > maxPrimeLength:
+                maxPrimeLength = nextPrimeIndex - prime
+                highestLengthPrime = primeSum
+
+    return highestLengthPrime
 
 
 

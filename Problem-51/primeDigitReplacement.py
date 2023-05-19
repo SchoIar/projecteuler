@@ -8,3 +8,37 @@ def isPrime(n):
         if n % i == 0:
             return False
     return True
+
+def replaceDigits(number):
+    primesSet = set()
+    numberStr = str(number)
+    #iterate through all possible changes in number
+
+    #iterate through all possible replacement digits
+    for replacementDigit in range(0, 10):
+        pass
+
+    if len(primesSet) == 8:
+        return min(primesSet)
+
+    
+    
+
+def getReplacedDigitPermutations(number):
+    smallestPrime = None
+    #part of the number (not necessarily adjacent digits) with the same digit, is part of an eight prime value family.
+    
+    return smallestPrime
+
+def main():
+    start = 3
+    while True:
+        start += 2
+        if isPrime(start):
+            potentialSolution = getReplacedDigitPermutations(start)
+            if potentialSolution != None:
+                return potentialSolution
+
+if __name__ == '__main__':
+    solution = main()
+    print(solution)

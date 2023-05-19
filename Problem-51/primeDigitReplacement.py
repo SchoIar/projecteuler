@@ -13,10 +13,19 @@ def replaceDigits(number):
     primesSet = set()
     numberStr = str(number)
     #iterate through all possible changes in number
+    
 
     #iterate through all possible replacement digits
     for replacementDigit in range(0, 10):
-        pass
+        for digit in range(0, len(numberStr)):
+            #for 1 digit..
+            currentNum = list(numberStr)
+            currentNum[digit] = replacementDigit
+            currentString = ''
+            for element in currentNum:
+                currentString += str(element)
+            print(currentString)
+        
 
     if len(primesSet) == 8:
         return min(primesSet)
@@ -40,5 +49,6 @@ def main():
                 return potentialSolution
 
 if __name__ == '__main__':
-    solution = main()
-    print(solution)
+    print(replaceDigits(123456))
+    '''solution = main()
+    print(solution)'''

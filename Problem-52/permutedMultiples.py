@@ -11,12 +11,14 @@ def isDigitsOfAInB(alpha, beta):
             return False
     return True
 
+
 def arePermutedMultiples(number):
     for multipleOfNumber in range(2, 7):
         currentMultiple = multipleOfNumber * number
         if not isDigitsOfAInB(number, currentMultiple):
             return False
     return True
+
 
 def main():
     start = 1
@@ -25,9 +27,10 @@ def main():
             return start
         start += 1
 
+
 if __name__ == '__main__':
-    #TODO: Check for number of digits occurance, if equal, isDigitOfAInB should return true - if not - return a problem.
-    #not a problem to get the correct solution for this problem. 
-    #ie, (isDigitsOfAInB(1123, 3221)) would be True
+    # TODO: Check for number of digits occurance, if equal, isDigitOfAInB should return true - if not - return a problem.
+    # not a problem to get the correct solution for this problem.
+    # ie, (isDigitsOfAInB(1123, 3221)) would be True
     solution = main()
     print(solution)

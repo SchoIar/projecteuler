@@ -26,7 +26,9 @@ def main():
         start += 1
 
 if __name__ == '__main__':
-    print(isDigitsOfAInB(1233, 3121))
+    #print(isDigitsOfAInB(1233, 3121))
+    
     #TODO: Check for number of digits occurance, if equal, isDigitOfAInB should return true - if not - return a problem.
-    '''    solution = main()
-    print(solution)'''
+    #not a problem to get the correct solution for this problem. 
+    solution = main()
+    print(solution)

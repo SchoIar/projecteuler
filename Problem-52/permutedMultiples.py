@@ -1,4 +1,4 @@
-# Anton Ilic, May 18, 2023
+# Anton Ilic, May 19, 2023
 # https://projecteuler.net/problem=52
 
 def numberOfDigits(number):

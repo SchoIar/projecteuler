@@ -1,16 +1,23 @@
 # Anton Ilic, May 18, 2023
 # https://projecteuler.net/problem=52
 
+def numberOfDigits(number):
+    digitList = {}
+    for digit in str(number):
+        if digit in digitList:
+            digitList[digit] += 1
+        else:
+            digitList[digit] = 1
+    return digitList
+
+
 def isDigitsOfAInB(alpha, beta):
     '''True if all digits of 'alpha' are in 'beta' otherwise False '''
     strAlpha = str(alpha)
     strBeta = str(beta)
     if len(strAlpha) != len(strBeta):
         return False
-    for digit in strAlpha:
-        if not digit in strBeta:
-            return False
-    return True
+    return numberOfDigits(strAlpha) == numberOfDigits(strBeta)
 
 
 def arePermutedMultiples(number):
@@ -30,8 +37,5 @@ def main():
 
 
 if __name__ == '__main__':
-    # TODO: Check for number of digits occurance, if equal, isDigitOfAInB should return true - if not - return a problem.
-    # not a problem to get the correct solution for this problem.
-    # ie, (isDigitsOfAInB(1123, 3221)) would be True
     solution = main()
     print(solution)

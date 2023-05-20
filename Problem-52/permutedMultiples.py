@@ -2,6 +2,7 @@
 # https://projecteuler.net/problem=52
 
 def isDigitsOfAInB(alpha, beta):
+    '''True if all digits of 'alpha' are in 'beta' otherwise False '''
     strAlpha = str(alpha)
     strBeta = str(beta)
     if len(strAlpha) != len(strBeta):

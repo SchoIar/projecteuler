@@ -1,6 +1,9 @@
 # Anton Ilic, May 17, 2023
 # https://projecteuler.net/problem=51
 
+from itertools import combinations
+
+
 def isPrime(n):
     if n < 2:
         return False
@@ -8,6 +11,7 @@ def isPrime(n):
         if n % i == 0:
             return False
     return True
+
 
 def replaceNumberIndex(number, index, value):
     number = list(str(number))
@@ -17,16 +21,15 @@ def replaceNumberIndex(number, index, value):
         currentString += str(element)
     return currentString
 
+
 def replaceDigits(number):
     primesSet = set()
     numberStr = str(number)
-
-
-    #iterate through all possible replacement digits
+    # TODO: iterate through all possible replacement digits - not just the Nth digit
     for digit in range(0, len(numberStr)):
         primesSet = set()
         for replacementDigit in range(0, 10):
-            #for 1 digit..
+            # for 1 digit..
             currentString = replaceNumberIndex(number, digit, replacementDigit)
 
             if isPrime(int(currentString)):
@@ -36,6 +39,8 @@ def replaceDigits(number):
 
             if len(primesSet) == 8:
                 return min(primesSet)
+
+
 def main():
     start = 3
     while True:
@@ -44,6 +49,7 @@ def main():
             potentialSolution = replaceDigits(start)
             if potentialSolution != None:
                 return potentialSolution
+
 
 if __name__ == '__main__':
 

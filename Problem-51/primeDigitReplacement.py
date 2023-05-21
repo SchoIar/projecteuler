@@ -12,43 +12,36 @@ def isPrime(n):
 def replaceDigits(number):
     primesSet = set()
     numberStr = str(number)
-    #iterate through all possible changes in number
-    
+
 
     #iterate through all possible replacement digits
-    for replacementDigit in range(0, 10):
-        for digit in range(0, len(numberStr)):
+    for digit in range(0, len(numberStr)):
+        primesSet = set()
+        for replacementDigit in range(0, 10):
             #for 1 digit..
             currentNum = list(numberStr)
             currentNum[digit] = replacementDigit
             currentString = ''
             for element in currentNum:
                 currentString += str(element)
-            print(currentString)
-        
 
-    if len(primesSet) == 8:
-        return min(primesSet)
+            if isPrime(int(currentString)):
+                if not currentString[0] == '0':
+                    primesSet.add(int(currentString))
+                    print(currentString)
 
-    
-    
-
-def getReplacedDigitPermutations(number):
-    smallestPrime = None
-    #part of the number (not necessarily adjacent digits) with the same digit, is part of an eight prime value family.
-    
-    return smallestPrime
-
+            if len(primesSet) == 6:
+                return min(primesSet)
 def main():
     start = 3
     while True:
         start += 2
         if isPrime(start):
-            potentialSolution = getReplacedDigitPermutations(start)
+            potentialSolution = replaceDigits(start)
             if potentialSolution != None:
                 return potentialSolution
 
 if __name__ == '__main__':
-    print(replaceDigits(123456))
+    print(replaceDigits(13))
     '''solution = main()
     print(solution)'''

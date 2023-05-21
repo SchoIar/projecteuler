@@ -9,6 +9,14 @@ def isPrime(n):
             return False
     return True
 
+def replaceNumberIndex(number, index, value):
+    number = list(str(number))
+    number[index] = value
+    currentString = ''
+    for element in number:
+        currentString += str(element)
+    return currentString
+
 def replaceDigits(number):
     primesSet = set()
     numberStr = str(number)
@@ -19,18 +27,14 @@ def replaceDigits(number):
         primesSet = set()
         for replacementDigit in range(0, 10):
             #for 1 digit..
-            currentNum = list(numberStr)
-            currentNum[digit] = replacementDigit
-            currentString = ''
-            for element in currentNum:
-                currentString += str(element)
+            currentString = replaceNumberIndex(number, digit, replacementDigit)
 
             if isPrime(int(currentString)):
                 if not currentString[0] == '0':
                     primesSet.add(int(currentString))
                     print(currentString)
 
-            if len(primesSet) == 6:
+            if len(primesSet) == 8:
                 return min(primesSet)
 def main():
     start = 3
@@ -42,6 +46,6 @@ def main():
                 return potentialSolution
 
 if __name__ == '__main__':
-    print(replaceDigits(13))
-    '''solution = main()
-    print(solution)'''
+
+    solution = main()
+    print(solution)

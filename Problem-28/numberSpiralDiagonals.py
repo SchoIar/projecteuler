@@ -25,4 +25,4 @@ def calculateSum(maxNumber):
 
 
 if __name__ == '__main__':
-    print(calculateSum(3))
+    print(calculateSum(1001))

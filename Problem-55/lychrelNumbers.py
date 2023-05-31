@@ -7,16 +7,16 @@ def isPalindrome(number):
 
 def isLychrel(number):
     for i in range(1, 51):
+        number = number + int((str(number)[::-1]))
         if isPalindrome(number):
             return False
-        else:
-            number = number + int((str(number)[::-1]))
+        
             
     return True
 
 def solution():
     isLychrelCount = 0
-    for i in range(1, 10001):
+    for i in range(1, 10000):
         if isLychrel(i):
             isLychrelCount += 1
     return isLychrelCount

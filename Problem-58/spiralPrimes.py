@@ -11,7 +11,6 @@ def isPrime(number):
 
 
 def solution():
-    sum = 1
     previousNumber = 1
     increment = 2
     numberOfPrimes = 0
@@ -24,12 +23,13 @@ def solution():
                 numberOfPrimes += 1
             else:
                 numberOfNonPrime += 1
-        
-        percentagePrime = (numberOfPrimes * 100 / (numberOfNonPrime + numberOfPrimes))
-        if percentagePrime < 10: 
+
+        percentagePrime = (numberOfPrimes * 100 /
+                           (numberOfNonPrime + numberOfPrimes))
+        if percentagePrime < 10:
             return increment + 1
 
-        increment += 2 
+        increment += 2
 
 
 print(solution())

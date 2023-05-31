@@ -15,7 +15,7 @@ def solution():
     previousNumber = 1
     increment = 2
     numberOfPrimes = 0
-    numberOfNonPrime = 0
+    numberOfNonPrime = 1
 
     while True:
         for diagonal in range(0, 4):  # for individual spiral
@@ -24,13 +24,12 @@ def solution():
                 numberOfPrimes += 1
             else:
                 numberOfNonPrime += 1
-
-        # previousNumber is the last diagonal of the layer - has the 'count' of numbers
-
-        if ((numberOfPrimes * 100 / (numberOfNonPrime + numberOfPrimes))) < 10:
+        
+        percentagePrime = (numberOfPrimes * 100 / (numberOfNonPrime + numberOfPrimes))
+        if percentagePrime < 10: 
             return increment + 1
 
-        increment += 2  # each 'layer' adds two more seperation from diagonals
+        increment += 2 
 
 
 print(solution())

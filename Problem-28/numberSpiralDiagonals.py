@@ -19,7 +19,7 @@ def calculateSum(maxNumber):
         for diagonal in range(0, 4):
             previousNumber += increment
             sum += previousNumber
-        increment += 2 #each 'layer' adds two more seperation from diagonals
+        increment += 2  # each 'layer' adds two more seperation from diagonals
 
     return sum
 

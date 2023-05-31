@@ -9,20 +9,28 @@ def isPrime(number):
             return False
     return True
 
+
 def solution():
     sum = 1
     previousNumber = 1
     increment = 2
     numberOfPrimes = 0
+    numberOfNonPrime = 0
 
-    while True:  
-        for diagonal in range(0, 4): #for individual spiral
+    while True:
+        for diagonal in range(0, 4):  # for individual spiral
             previousNumber += increment
             if isPrime(previousNumber):
                 numberOfPrimes += 1
-        
-        #previousNumber is the last diagonal of the layer - has the 'count' of numbers
-        #rint(previousNumber / numberOfPrimes)
+            else:
+                numberOfNonPrime += 1
+
+        # previousNumber is the last diagonal of the layer - has the 'count' of numbers
+
+        if ((numberOfPrimes * 100 / (numberOfNonPrime + numberOfPrimes))) < 10:
+            return increment + 1
 
         increment += 2  # each 'layer' adds two more seperation from diagonals
 
+
+print(solution())

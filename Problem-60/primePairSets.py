@@ -24,5 +24,10 @@ def isCombinationsPrime(listOfNumbers):
 def isCombinationPrime(a, b):
     return (isPrime(int(str(a) + str(b))) and isPrime(int(str(b) + str(a))))
 
-
+def generateNPrimes(start, end):
+    primesList = []
+    for i in range(start, end + 1):
+        if isPrime(i):
+            primesList.append(i)
+    return primesList
 

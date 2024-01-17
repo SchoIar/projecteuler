@@ -31,6 +31,5 @@ def generateNPrimes(start, end):
             primesList.append(i)
     return primesList
 
-
 if __name__ == '__main__':
-    print(solution())
+    pass

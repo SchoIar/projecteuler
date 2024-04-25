@@ -1,7 +1,7 @@
 // Description: Solution to Project Euler, Question 2;
 //              Computes the sum of odd Fibonacci numbers under four million
 public class Main{
-    int solution(){
+    private int solution(){
         int current = 1; int next = 1; int temp = 0;
         int fOddSum = 0;
         while(current <= 4000000){

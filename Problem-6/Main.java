@@ -3,16 +3,16 @@
  * Solution to https://projecteuler.net/problem=6
  * 
  */
-public class Main{
+public class Main {
 
     /**
-     * Returns the difference of sum of squares and square of sum for 1 to n. 
+     * Returns the difference of sum of squares and square of sum for 1 to n.
      * 
      */
-    public long solution(int n){
+    public long solution(int n) {
         long sum = 0;
         long sum_of_squares = 0;
-        for(int i = 1; i <= n; i++){
+        for (int i = 1; i <= n; i++) {
             sum += i;
             sum_of_squares += (i * i);
         }

@@ -1,54 +1,41 @@
 # Anton Ilic, completed Apr 1, 2023
+# Updated code to be more concise and legible Sat. Feb 15th
 # https://projecteuler.net/problem=19
 
 
 def isLeapYear(year):
-    '''Check if the year is a leap year'''
-    if (((str(year))[len(str(year))-3:len(str(year))-1]) == '00'):
-        if (year % 400 == 0):
-            return True
-    elif (year % 4 == 0):
-        return True
-    else:
-        return False
+    '''
+    Checks if the year is a leap year.
+    A leap year is defined as being divisible by 4 but not 100 except when divisible by 400
+    '''
+    return ((year % 4 == 0 and year % 100 != 0) or year % 400 == 0)
 
 
-def addToDayOfTheWeek(dayOfTheWeekChosen):
-    '''Returns day of the week, as a number'''
-    return (dayOfTheWeekChosen + 1 if dayOfTheWeekChosen + 1 <= 7 else 1)
-
-
-def findTotalSundays(dayOfTheWeekStart, startYear):
+def findTotalSundays(startDay, startYear):
     '''Finds total Sundays that fall on the 1st of a month in the 20th century '''
-    totalSundaysOnFirst = 0
-    dayOfTheWeek = dayOfTheWeekStart
-    year = startYear
-    while (year <= 2000):
-        for month in range(1, 13):
-            if month == 9 or month == 4 or month == 6 or month == 11:
-                for day in range(1, 31):
-                    if (day == 1 and dayOfTheWeek == 7):
-                        totalSundaysOnFirst += 1
-                    dayOfTheWeek = addToDayOfTheWeek(dayOfTheWeek)
-            elif month == 2:
-                if isLeapYear(year):  # in case of a leap year, 31 days of feb2
-                    for day in range(1, 30):
-                        if (day == 1 and dayOfTheWeek == 7):
-                            totalSundaysOnFirst += 1
-                        dayOfTheWeek = addToDayOfTheWeek(dayOfTheWeek)
-                else:
-                    for day in range(1, 29):
-                        if (day == 1 and dayOfTheWeek == 7):
-                            totalSundaysOnFirst += 1
-                        dayOfTheWeek = addToDayOfTheWeek(dayOfTheWeek)
+    endYear = 2000
+    solution = 0
+    day = startDay  # 1: Monday, 7: Sunday
+    days = [31, 28, 31, 30, 31, 30, 31, 31,
+            30, 31, 30, 31]  # days in each month
+
+    for year in range(startYear, endYear + 1):
+        for month in range(12):
+            if day == 7:
+                solution += 1
+
+            if month == 1 and isLeapYear(year):
+                daysinmonth = 29
             else:
-                for day in range(1, 32):
-                    if (day == 1 and dayOfTheWeek == 7):
-                        totalSundaysOnFirst += 1
-                    dayOfTheWeek = addToDayOfTheWeek(dayOfTheWeek)
+                daysinmonth = days[month]
 
-        year += 1
-    return totalSundaysOnFirst
+            currentday = (day + daysinmonth) % 7
+            if currentday == 0:
+                day = 7
+            else:
+                day = currentday
+
+    return solution
 
 
-print(findTotalSundays(2, 1901))
+print(findTotalSundays(2, 1901))  # starts on a tuesday
